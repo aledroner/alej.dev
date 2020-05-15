@@ -1,0 +1,32 @@
+{
+	"extends": "../tslint.json",
+	"rules": {
+		"directive-selector": [
+			true,
+			"attribute",
+			"a13",
+			"camelCase"
+		],
+		"component-selector": [
+			true,
+			"element",
+			"ale",
+			"kebab-case"
+		],
+		"semicolon": [
+			true,
+			"never"
+		],
+		"eofline": true,
+		"max-line-length": [
+			false
+		],
+		"no-switch-case-fall-through": false,
+		"variable-name": false,
+    "indent": {
+      "options": [
+        "tabs"
+      ]
+    }
+	}
+}
