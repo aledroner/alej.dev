@@ -4,7 +4,7 @@
 		"directive-selector": [
 			true,
 			"attribute",
-			"a13",
+			"ale",
 			"camelCase"
 		],
 		"component-selector": [
@@ -23,10 +23,11 @@
 		],
 		"no-switch-case-fall-through": false,
 		"variable-name": false,
-    "indent": {
-      "options": [
-        "tabs"
-      ]
-    }
+		"indent": {
+			"options": [
+				"tabs"
+			]
+		},
+		"no-inferrable-types": false
 	}
 }
