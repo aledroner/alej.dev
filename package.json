@@ -5,11 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ssr": "ng build --prod && ng run alejdev:server:production",
+		"prerender": "npm run build:ssr && npx angular-prerender --preserve-index-html",
+		"serve:ssr": "npm run prerender && http-server -c-1 -p 4201 dist/alejdev/browser",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build:prod": "ng build --prod",
-    "serve:pwa": "npm run build:prod && http-server -c-1 -p 4201 dist/alejdev"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,7 @@
     "@angular/forms": "~9.1.6",
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
+    "@angular/platform-server": "~9.1.6",
     "@angular/router": "~9.1.6",
     "@angular/service-worker": "~9.1.6",
     "rxjs": "~6.5.4",
@@ -33,6 +35,7 @@
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
+    "angular-prerender": "^5.4.9",
     "codelyzer": "^5.1.2",
     "http-server": "^0.12.3",
     "jasmine-core": "~3.5.0",
