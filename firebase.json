@@ -1,0 +1,65 @@
+{
+	"hosting": [{
+		"target": "production",
+		"public": "dist/alejdev/browser",
+		"ignore": [
+			"firebase.json",
+			"**/.*",
+			"**/node_modules/**"
+		],
+		"rewrites": [{
+			"source": "**",
+			"destination": "/index.html"
+		}],
+		"headers": [{
+			"source": "*.@(*.css|js)",
+			"headers": [{
+				"key": "Cache-Control",
+				"value": "max-age=31536000"
+			}]
+		}, {
+			"source": "**/*.@(*)",
+			"headers": [{
+				"key": "Cache-Control",
+				"value": "max-age=31536000"
+			}]
+		}, {
+			"source": "/@(ngsw-worker.js|ngsw.json)",
+			"headers": [{
+				"key": "Cache-Control",
+				"value": "no-cache"
+			}]
+		}]
+	}, {
+		"target": "develop",
+		"public": "dist/alejdev/browser",
+		"ignore": [
+			"firebase.json",
+			"**/.*",
+			"**/node_modules/**"
+		],
+		"rewrites": [{
+			"source": "**",
+			"destination": "/index.html"
+		}],
+		"headers": [{
+			"source": "*.@(*.css|js)",
+			"headers": [{
+				"key": "Cache-Control",
+				"value": "max-age=31536000"
+			}]
+		}, {
+			"source": "**/*.@(*)",
+			"headers": [{
+				"key": "Cache-Control",
+				"value": "max-age=31536000"
+			}]
+		}, {
+			"source": "/@(ngsw-worker.js|ngsw.json)",
+			"headers": [{
+				"key": "Cache-Control",
+				"value": "no-cache"
+			}]
+		}]
+	}]
+}

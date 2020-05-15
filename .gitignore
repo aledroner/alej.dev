@@ -4,6 +4,14 @@
 /dist
 /tmp
 /out-tsc
+
+# Firebase #
+.idea
+
+# Firebase Patch #
+.runtimeconfig.json
+.firebase/
+
 # Only exists if Bazel was run
 /bazel-out
 

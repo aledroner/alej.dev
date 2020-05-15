@@ -4,13 +4,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "build:ssr": "ng build --prod && ng run alejdev:server:production",
-		"prerender": "npm run build:ssr && npx angular-prerender --preserve-index-html",
-		"serve:ssr": "npm run prerender && http-server -c-1 -p 4201 dist/alejdev/browser",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build": "ng build",
+    "build:ssr": "ng build --prod && ng run alejdev:server:production",
+    "prerender": "npm run build:ssr && npx angular-prerender --preserve-index-html",
+    "serve:ssr": "npm run prerender && http-server -c-1 -p 4201 dist/alejdev/browser",
+    "deploy": "npm run prerender & firebase deploy --only hosting:develop",
+    "deploy:prod": "npm run prerender & firebase deploy --only hosting:production",
+    "deploy:all": "npm run prerender & firebase deploy"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +40,7 @@
     "@types/node": "^12.11.1",
     "angular-prerender": "^5.4.9",
     "codelyzer": "^5.1.2",
+    "firebase-tools": "^8.2.0",
     "http-server": "^0.12.3",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
