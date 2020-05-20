@@ -1,0 +1,93 @@
+// VARIABLES
+
+// Colors
+$primary-color:						#8c00ff;
+$secondary-color:					#ffc813;
+$tertiary-color:					#ff3e3e;
+
+$success-color: 					#51df70;
+$info-color: 							#348fe4;
+$warning-color: 					#ffd95b;
+$error-color: 						#f75f5f;
+
+$black:										#000;
+$dark-0: 										lighten($black, 3%);
+$dark-1: 										lighten($black, 10%);
+$dark-2: 										lighten($black, 20%);
+$dark-3: 										lighten($black, 30%);
+$dark-4: 										lighten($black, 40%);
+$grey:										#808080;
+$white:										#fff;
+$light-0: 									darken($white, 3%);
+$light-1: 									darken($white, 10%);
+$light-2: 									darken($white, 20%);
+$light-3: 									darken($white, 30%);
+$light-4: 									darken($white, 40%);
+
+$colors: (
+	main: (
+		primary-color:					$primary-color,
+		accent-color:						$secondary-color,
+		warn-color:							$tertiary-color,
+		grey-color:							$grey
+	),
+	light-theme: (
+		background-color:				$white,
+		foreground-color:				$dark-1,
+		success-color:			 		$success-color,
+		info-color:				 			$info-color,
+		warning-color:				 	$warning-color,
+		error-color:			 			$error-color,
+	),
+	dark-theme: (
+		background-color:				$dark-1,
+		foreground-color:				$light-0,
+		success-color:			 		lighten($success-color, 20%),
+		info-color:				 			lighten($info-color, 20%),
+		warning-color:				 	lighten($warning-color, 20%),
+		error-color:			 			lighten($error-color, 20%),
+	)
+);
+
+// Sizes
+$sizes: (
+	main: (
+		border-size: 						1px,
+		header-size: 						54px,
+		padding-size: 					2rem,
+		radius-size: 						.5rem,
+		sidemenu-size: 					280px,
+	),
+	media: (
+		lg-size:								1280px,
+		sm-size:								960px,
+		xs-size:								600px,
+	)
+);
+
+// Fonts
+$primary-font: 						'Headland One', serif;
+$secondary-font: 					'Poppins', sans-serif;
+$tertiary-font: 					'Inconsolata', monospace;
+
+$fonts: (
+	font: (
+		primary: $primary-font,
+		headers: $secondary-font,
+		code: $tertiary-font
+	),
+	weight: (
+		primary-font: normal,
+		headers-font: 800
+	),
+	size: (
+		main-font: 1.1rem,
+		h1: 3.2rem,
+		h2: 2.6rem,
+		h3: 2.2rem,
+		h4: 1.8rem,
+		h5: 1.4rem,
+		h6: 1.2rem,
+		code: 1rem
+	)
+);

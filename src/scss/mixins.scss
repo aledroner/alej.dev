@@ -1,0 +1,10 @@
+// MIXINS
+
+// Set map
+@mixin set-map($map) {
+  @each $nameSchema, $schema in $map {
+    @each $key, $value in $schema {
+      --#{$nameSchema}-#{$key}: #{$value};
+    }
+  }
+}

@@ -1,0 +1,72 @@
+// MAIN
+
+:root {
+	@include set-map($colors);
+	@include set-map($sizes);
+	@include set-map($fonts);
+}
+
+body {
+	margin: 0;
+	font-size: var(--size-main-font);
+	font-family: var(--font-primary);
+	font-weight: var(--weight-primary-font);
+}
+
+* {
+	-webkit-font-smoothing: antialased;
+	-moz-osx-font-smoothing: antialased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 1em 0 .75em;
+	font-family: var(--font-headers);
+	font-weight: var(--weight-headers-font);
+}
+
+h1 {
+	font-size: var(--size-h1);
+}
+
+h2 {
+	font-size: var(--size-h2);
+}
+
+h3 {
+	font-size: var(--size-h3);
+}
+
+h4 {
+	font-size: var(--size-h4);
+}
+
+h5 {
+	font-size: var(--size-h5);
+}
+
+h6 {
+	font-size: var(--size-h6);
+}
+
+code {
+	font-family: var(--font-code);
+	font-size: var(--size-code);
+}
+
+// Media queries
+@media only screen and (max-width: maps-get($sizes, media, sm)) {
+	:root {
+		--padding-size: 1.2rem;
+	}
+}
+
+@media only screen and (max-width: maps-get($sizes, media, xs)) {
+	:root {
+		--padding-size: .75rem;
+	}
+}

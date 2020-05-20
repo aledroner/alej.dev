@@ -1,0 +1,6 @@
+// MIXINS
+
+// return $value from a $scheme from a $map
+@function maps-get($map, $scheme, $value) {
+	@return get-map($scheme, get-map($map, $value));
+}
