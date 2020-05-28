@@ -1,21 +1,29 @@
 // MAIN
 
+@import 'variables';
+
 :root {
-	@include set-map($colors);
-	@include set-map($sizes);
-	@include set-map($fonts);
+	@include set-map($root-config);
 }
 
 body {
 	margin: 0;
-	font-size: var(--size-main-font);
-	font-family: var(--font-primary);
-	font-weight: var(--weight-primary-font);
+	font-size: $main-font-size;
+	font-family: $primary-font;
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+	transition: color .5s, background-color .2s;
 }
 
 * {
 	-webkit-font-smoothing: antialased;
 	-moz-osx-font-smoothing: antialased;
+	box-sizing: border-box;
+}
+
+code {
+	font-family: $tertiary-font;
+	font-size: $code-font-size;
 }
 
 h1,
@@ -24,53 +32,60 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 1em 0 .75em;
-	font-family: var(--font-headers);
-	font-weight: var(--weight-headers-font);
+	margin: 1.2em 0 1em;
+	font-family: $secondary-font;
+	font-weight: 800;
 }
 
 h1 {
-	font-size: var(--size-h1);
+	font-size: $h1-font-size;
 }
 
 h2 {
-	font-size: var(--size-h2);
+	font-size: $h2-font-size;
 }
 
 h3 {
-	font-size: var(--size-h3);
+	font-size: $h3-font-size;
 }
 
 h4 {
-	font-size: var(--size-h4);
+	font-size: $h4-font-size;
 }
 
 h5 {
-	font-size: var(--size-h5);
+	font-size: $h5-font-size;
 }
 
 h6 {
-	font-size: var(--size-h6);
+	font-size: $h6-font-size;
 }
 
 p {
-	line-height: var(--main-line-height);
+	line-height: $line-height-size;
 }
 
-code {
-	font-family: var(--font-code);
-	font-size: var(--size-code);
+a {
+	text-decoration: none;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
 // Media queries
-@media only screen and (max-width: maps-get($sizes, media, sm)) {
+@media only screen and (max-width: $sm-screen) {
 	:root {
-		--padding-size: 1.2rem;
+		--gap-size: #{$gap-size * .6};
+		--logo-size: #{$logo-size * .75};
 	}
 }
 
-@media only screen and (max-width: maps-get($sizes, media, xs)) {
+@media only screen and (max-width: $xs-screen) {
 	:root {
-		--padding-size: .75rem;
+		--gap-size: #{$gap-size * .3};
+		--logo-size: #{$logo-size * .5};
 	}
 }

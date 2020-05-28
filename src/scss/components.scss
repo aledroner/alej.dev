@@ -1,5 +1,6 @@
 // COMPONENTS
+@import 'variables';
 
 .container {
-	padding: var(--padding-size);
+	padding: var(--gap-size);
 }

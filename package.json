@@ -17,7 +17,6 @@
   },
   "private": true,
   "dependencies": {
-    "@alejdev/css-utilities": "^0.1.2",
     "@angular/animations": "~9.1.6",
     "@angular/common": "~9.1.6",
     "@angular/compiler": "~9.1.6",
@@ -28,6 +27,9 @@
     "@angular/platform-server": "~9.1.6",
     "@angular/router": "~9.1.6",
     "@angular/service-worker": "~9.1.6",
+    "@fortawesome/angular-fontawesome": "^0.6.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

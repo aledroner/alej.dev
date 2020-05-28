@@ -4,12 +4,10 @@
 $primary-color:						#7a37a4;
 $secondary-color:					#1e54c4;
 $tertiary-color:					#3df7e3;
-
 $success-color: 					#51df70;
 $info-color: 							#348fe4;
 $warning-color: 					#ffd95b;
 $error-color: 						#f75f5f;
-
 $black:										#000;
 $dark-0: 										lighten($black, 3%);
 $dark-1: 										lighten($black, 10%);
@@ -23,72 +21,45 @@ $light-1: 									darken($white, 10%);
 $light-2: 									darken($white, 20%);
 $light-3: 									darken($white, 30%);
 $light-4: 									darken($white, 40%);
-
-$colors: (
-	main: (
-		primary-color:					$primary-color,
-		accent-color:						$secondary-color,
-		warn-color:							$tertiary-color,
-		grey-color:							$grey
-	),
-	light-theme: (
-		background-color:				$white,
-		foreground-color:				$dark-1,
-		success-color:			 		$success-color,
-		info-color:				 			$info-color,
-		warning-color:				 	$warning-color,
-		error-color:			 			$error-color,
-	),
-	dark-theme: (
-		background-color:				$dark-1,
-		foreground-color:				$light-0,
-		success-color:			 		lighten($success-color, 20%),
-		info-color:				 			lighten($info-color, 20%),
-		warning-color:				 	lighten($warning-color, 20%),
-		error-color:			 			lighten($error-color, 20%),
-	)
-);
+$light-background-color:		$white;
+$light-foreground-color:		$dark-1;
+$dark-background-color:			$dark-1;
+$dark-foreground-color:			$light-0;
 
 // Sizes
-$sizes: (
-	main: (
-		border-size: 						1px,
-		header-size: 						54px,
-		padding-size: 					2rem,
-		radius-size: 						.5rem,
-		sidemenu-size: 					280px,
-		line-height:						2.2
-	),
-	media: (
-		lg-size:								1280px,
-		sm-size:								960px,
-		xs-size:								600px,
-	)
-);
+$border-size: 							1px;
+$gap-size:		 							2rem;
+$header-size: 							6rem;
+$line-height-size:					2.2;
+$logo-size:									54px;
+$radius-size: 							.5rem;
+$sidemenu-size: 						280px;
+
+// Others
+$shadow-light:							0 0 4px rgba(0, 0, 0, .1);
+$shadow-dark:								0 0 4px rgba(255, 255, 255, .1);
+
+// Screen media queries
+$lg-screen:									1280px;
+$sm-screen:									960px;
+$xs-screen:									600px;
 
 // Fonts
-$primary-font: 						'Headland One', serif;
-$secondary-font: 					'Poppins', sans-serif;
-$tertiary-font: 					'Inconsolata', monospace;
+$primary-font: 							'Headland One', serif;
+$secondary-font: 						'Poppins', sans-serif;
+$tertiary-font: 						'Inconsolata', monospace;
+$main-font-size: 						1.1rem;
+$h1-font-size:							3.2rem;
+$h2-font-size:							2.6rem;
+$h3-font-size:							2.2rem;
+$h4-font-size:							1.8rem;
+$h5-font-size:							1.4rem;
+$h6-font-size:							1.2rem;
+$code-font-size:						$main-font-size;
 
-$fonts: (
-	font: (
-		primary: $primary-font,
-		headers: $secondary-font,
-		code: $tertiary-font
-	),
-	weight: (
-		primary-font: normal,
-		headers-font: 800
-	),
-	size: (
-		main-font: 1.1rem,
-		h1: 3.2rem,
-		h2: 2.6rem,
-		h3: 2.2rem,
-		h4: 1.8rem,
-		h5: 1.4rem,
-		h6: 1.2rem,
-		code: 1rem
-	)
+// Root variables
+$root-config: (
+	gap-size: 								$gap-size,
+	header-size:							$header-size,
+	logo-size: 								$logo-size,
 );

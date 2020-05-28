@@ -1,0 +1,59 @@
+@import '../../../../scss/variables';
+
+.main-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: var(--header-size);
+	padding: 0 var(--gap-size);
+	background-color: var(--background-color);
+	box-shadow: var(--shadow);
+}
+
+.header-logo {
+	display: flex;
+	align-items: center;
+
+	.icon-logo {
+		max-width: var(--logo-size);
+		margin-right: var(--gap-size);
+	}
+
+	.text-logo {
+		font-size: 2.2rem;
+		font-weight: bold;
+		color: var(--foreground-color);
+
+		.extension {
+			font-size: 1.2rem;
+			color: var(--secondary-text);
+		}
+	}
+
+}
+
+.nav-container {
+	display: flex;
+	align-items: center;
+}
+
+.header-nav {
+	ul {
+		display: flex;
+	}
+
+	a {
+		padding: var(--gap-size);
+		color: var(--foreground-color);
+	}
+}
+
+.toggle-theme-button {
+	padding: .5rem;
+	margin-left: 1rem;
+	font-size: 1.4rem;
+	cursor: pointer;
+}

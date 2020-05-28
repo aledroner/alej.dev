@@ -1,0 +1,28 @@
+<header class="main-header">
+
+	<!-- Logo -->
+	<a class="header-logo" [routerLink]="['/']">
+		<img class="icon-logo" src="assets/icons/logo.svg" alt="Logo alej.dev">
+		<span class="text-logo">
+			alej<span class="extension">.dev</span>
+		</span>
+	</a>
+
+	<div class="nav-container">
+		
+		<!-- Navigation -->
+		<nav class="header-nav">
+			<ul>
+				<li *ngFor="let item of menu">
+					<a [routerLink]=[item.url]>{{item.name}}</a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Theme toogle -->
+		<a class="toggle-theme-button" (click)="toggleTheme()">
+			<fa-icon [icon]="themeMode | iconTheme"></fa-icon>
+		</a>
+	</div>
+
+</header>

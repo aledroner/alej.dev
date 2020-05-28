@@ -1,9 +1,25 @@
 // THEMING
 
-.light-theme {
-	background-color: var(--light-theme-background-color);
+@import 'variables';
+
+$light-theme:							1;
+$dark-theme:							2;
+
+$theme-config: (
+	background-color:				($light-background-color, $dark-background-color),
+	foreground-color:				($light-foreground-color, $dark-foreground-color),
+	secondary-text:					($grey, $grey),
+	success-color:			 		($success-color, lighten($success-color, 20%)),
+	info-color:				 			($info-color, lighten($info-color, 20%)),
+	warning-color:				 	($warning-color, lighten($warning-color, 20%)),
+	error-color:			 			($error-color, lighten($error-color, 20%)),
+	shadow:									($shadow-light, $shadow-dark),
+);
+
+.light-mode {
+	@include set-theme($theme-config, $light-theme);
 }
 
-.dark-theme {
-	background-color: var(--dark-theme-background-color);
+.dark-mode {
+	@include set-theme($theme-config, $dark-theme);
 }
