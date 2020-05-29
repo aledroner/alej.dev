@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core'
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 import { LocalStorageService } from './local-storage.service'
+import { isPlatformBrowser } from '@angular/common'
 
 export enum ThemeMode {
 	DARK = 'dark-mode',
@@ -16,13 +17,16 @@ export class ThemeHandlerService {
 	private readonly THEME_KEY = 'theme'
 
 	constructor(
+		@Inject(PLATFORM_ID) private platformId: object,
 		private localStorage: LocalStorageService
 	) { }
 
 	public setThemeOnStart(): void {
-		this.theme$.value === this.localStorage.getItem(this.THEME_KEY) ?
-			this.setTheme(ThemeMode.LIGHT) :
-			this.setTheme(ThemeMode.DARK)
+		if (isPlatformBrowser(this.platformId)) {
+			this.theme$.value === this.localStorage.getItem(this.THEME_KEY) ?
+				this.setTheme(ThemeMode.LIGHT) :
+				this.setTheme(ThemeMode.DARK)
+		}
 	}
 
 	public toggleTheme(): void {

@@ -27,7 +27,7 @@ export function themeFactory(themeService: ThemeHandlerService) {
 	imports: [...modules],
 	exports: [...components, ...modules],
 	providers: [
-		ThemeHandlerService, { provide: APP_INITIALIZER, useFactory: themeFactory, deps: [ThemeHandlerService], multi: true }
+		{ provide: APP_INITIALIZER, useFactory: themeFactory, deps: [ThemeHandlerService], multi: true }
 	]
 })
 export class SharedModule {
