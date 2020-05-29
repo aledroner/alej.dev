@@ -12,7 +12,7 @@ body {
 	font-family: $primary-font;
 	background-color: var(--background-color);
 	color: var(--foreground-color);
-	transition: color .5s, background-color .2s;
+	transition: $bg-transition;
 }
 
 * {
