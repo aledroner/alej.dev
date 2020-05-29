@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
+import { LocalStorageService } from './local-storage.service'
 
 export enum ThemeMode {
 	DARK = 'dark-mode',
@@ -14,10 +15,12 @@ export class ThemeHandlerService {
 	public theme$ = new BehaviorSubject<ThemeMode>(ThemeMode.LIGHT)
 	private readonly THEME_KEY = 'theme'
 
-	constructor() { }
+	constructor(
+		private localStorage: LocalStorageService
+	) { }
 
 	public setThemeOnStart(): void {
-		this.theme$.value === localStorage.getItem(this.THEME_KEY) ?
+		this.theme$.value === this.localStorage.getItem(this.THEME_KEY) ?
 			this.setTheme(ThemeMode.LIGHT) :
 			this.setTheme(ThemeMode.DARK)
 	}
@@ -35,6 +38,6 @@ export class ThemeHandlerService {
 	private setTheme(mode: ThemeMode): void {
 		this.theme$.next(mode)
 		document.body.classList.value = mode
-		localStorage.setItem(this.THEME_KEY, mode)
+		this.localStorage.setItem(this.THEME_KEY, mode)
 	}
 }
