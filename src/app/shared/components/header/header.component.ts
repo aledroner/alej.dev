@@ -3,7 +3,11 @@ import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.ser
 
 export interface Route {
 	name: string
-	url: string
+	url: string,
+}
+
+export interface IconButton extends Route {
+	icon: string
 }
 
 @Component({
@@ -16,9 +20,15 @@ export class HeaderComponent implements OnInit {
 	themeMode: ThemeMode
 
 	menu: Route[] = [
-		{ name: 'home', url: '/' },
-		{ name: 'about', url: '/about' },
-		{ name: 'contact', url: '/contact' }
+		{ name: 'header-nav.home', url: '/' },
+		{ name: 'header-nav.blog', url: '/blog' },
+		{ name: 'header-nav.about', url: '/about' },
+		{ name: 'header-nav.contact', url: '/contact' }
+	]
+
+	social: IconButton[] = [
+		{ name: 'social.github', url: 'https://github.com/aledroner', icon: 'github' },
+		{ name: 'social.twitter', url: 'https://twitter.com/alej_dev', icon: 'twitter' }
 	]
 
 	constructor(
@@ -26,12 +36,16 @@ export class HeaderComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
+		this.setThemeMode()
+	}
+
+	setThemeMode() {
 		this.themeMode = this.themeService.getTheme()
 	}
 
 	toggleTheme(): void {
 		this.themeService.toggleTheme()
-		this.themeMode = this.themeService.getTheme()
+		this.setThemeMode()
 	}
 
 }

@@ -4,8 +4,11 @@ import { HeaderComponent } from './components/header/header.component'
 import { RouterModule } from '@angular/router'
 import { ThemeHandlerService } from './services/theme-handler.service'
 import { FontAwesomeModule, FaIconLibrary, FaConfig } from '@fortawesome/angular-fontawesome'
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { IconThemePipe } from './pipes/icon-theme.pipe'
+import { HttpClientModule } from '@angular/common/http'
+import { TranslateModule } from '@ngx-translate/core'
 
 const components = [
 	HeaderComponent,
@@ -15,7 +18,9 @@ const components = [
 const modules = [
 	CommonModule,
 	RouterModule,
-	FontAwesomeModule
+	HttpClientModule,
+	FontAwesomeModule,
+	TranslateModule
 ]
 
 export function themeFactory(themeService: ThemeHandlerService) {
@@ -23,9 +28,16 @@ export function themeFactory(themeService: ThemeHandlerService) {
 }
 
 @NgModule({
-	declarations: [...components],
-	imports: [...modules],
-	exports: [...components, ...modules],
+	declarations: [
+		...components
+	],
+	imports: [
+		...modules
+	],
+	exports: [
+		...components,
+		...modules
+	],
 	providers: [
 		{ provide: APP_INITIALIZER, useFactory: themeFactory, deps: [ThemeHandlerService], multi: true }
 	]
@@ -36,6 +48,6 @@ export class SharedModule {
 		library: FaIconLibrary
 	) {
 		faConfig.defaultPrefix = 'fas'
-		library.addIcons(faMoon, faSun)
+		library.addIcons(faGithub, faMoon, faSun, faTwitter)
 	}
 }

@@ -2,18 +2,20 @@
 
 @import 'variables';
 
-$light-theme:							1;
-$dark-theme:							2;
+$light-theme:									1;
+$dark-theme:									2;
 
 $theme-config: (
-	background-color:				($light-background-color, $dark-background-color),
-	foreground-color:				($light-foreground-color, $dark-foreground-color),
-	secondary-text:					($grey, $grey),
-	success-color:			 		($success-color, lighten($success-color, 20%)),
-	info-color:				 			($info-color, lighten($info-color, 20%)),
-	warning-color:				 	($warning-color, lighten($warning-color, 20%)),
-	error-color:			 			($error-color, lighten($error-color, 20%)),
-	shadow:									($shadow-light, $shadow-dark),
+	background-color:						($light-background-color, $dark-background-color),
+	header-background-color:		($light-header-background-color, $dark-header-background-color),
+	foreground-color:						($light-foreground-color, $dark-foreground-color),
+	link-color:									($light-link-color, $dark-link-color),
+	secondary-text:							($grey, $grey),
+	success-color:					 		($success-color, lighten($success-color, 20%)),
+	info-color:						 			($info-color, lighten($info-color, 20%)),
+	warning-color:						 	($warning-color, lighten($warning-color, 20%)),
+	error-color:					 			($error-color, lighten($error-color, 20%)),
+	shadow:											($shadow-light, $shadow-dark),
 );
 
 .light-mode {

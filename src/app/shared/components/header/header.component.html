@@ -1,7 +1,7 @@
 <header class="main-header">
 
 	<!-- Logo -->
-	<a class="header-logo" [routerLink]="['/']">
+	<a class="header-logo" [routerLink]="['/']" [title]="'header-nav.home' | translate">
 		<img class="icon-logo" src="assets/icons/logo.svg" alt="Logo alej.dev">
 		<span class="text-logo">
 			alej<span class="extension">.dev</span>
@@ -9,20 +9,28 @@
 	</a>
 
 	<div class="nav-container">
-		
+
 		<!-- Navigation -->
 		<nav class="header-nav">
 			<ul>
 				<li *ngFor="let item of menu">
-					<a [routerLink]=[item.url]>{{item.name}}</a>
+					<a [routerLink]=[item.url] routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }" [title]="item.name | translate">{{item.name | translate}}</a>
 				</li>
 			</ul>
 		</nav>
 
-		<!-- Theme toogle -->
-		<a class="toggle-theme-button" (click)="toggleTheme()">
+		<!-- Social -->
+		<nav class="social-header-nav">
+			<a class="icon-button" *ngFor="let item of social" target="_blank" [href]="item.url" [title]="item.name | translate">
+				<fa-icon [icon]="['fab', item.icon]"></fa-icon>
+			</a>
+		</nav>
+
+		<!-- Toggle theme -->
+		<a class="icon-button" (click)="toggleTheme()" [title]="'hint.switch-theme' | translate">
 			<fa-icon [icon]="themeMode | iconTheme"></fa-icon>
 		</a>
+
 	</div>
 
 </header>
