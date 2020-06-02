@@ -1,3 +1,5 @@
+@import '../scss/variables';
+
 .page-wrapper {
-	padding: 8rem var(--gap-size) var(--gap-size);
+	padding: calc(var(--header-size) + var(--gap-size)) var(--gap-size) var(--gap-size);
 }
