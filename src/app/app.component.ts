@@ -34,6 +34,8 @@ export class AppComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.SwUpdateSubscription.unsubscribe()
+		if (this.SwUpdateSubscription) {
+			this.SwUpdateSubscription.unsubscribe()
+		}
 	}
 }
