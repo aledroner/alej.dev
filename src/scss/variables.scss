@@ -55,8 +55,8 @@ $sm-screen:												960px;
 $xs-screen:												600px;
 
 // Fonts
-$primary-font:			 							'Headland One', serif;
-$secondary-font:			 						'Poppins', sans-serif;
+$primary-font:			 							'Poppins', sans-serif; //'Headland One', serif;
+$secondary-font:			 						$primary-font;
 $tertiary-font:			 							'Inconsolata', monospace;
 $main-font-size:			 						1.1rem;
 $h1-font-size:										3.2rem;
