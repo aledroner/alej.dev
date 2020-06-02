@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core'
+import { NgModule, Inject, PLATFORM_ID } from '@angular/core'
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
+import { isPlatformBrowser } from '@angular/common'
 
 @NgModule({
 	imports: [
@@ -18,11 +19,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 })
 export class I18nModule {
 	constructor(
+		@Inject(PLATFORM_ID) private platformId: object,
 		translate: TranslateService
 	) {
-		translate.addLangs(['es', 'en'])
-		const browserLang = translate.getBrowserLang()
-		translate.use(browserLang.match(/es|en/) ? browserLang : 'es')
+		if (isPlatformBrowser(this.platformId)) {
+			translate.addLangs(['es', 'en'])
+			const browserLang = translate.getBrowserLang()
+			translate.use(browserLang.match(/es|en/) ? browserLang : 'es')
+		}
 	}
 }
 
