@@ -15,6 +15,9 @@ import {
 	imports: [
 		CommonModule,
 		FontAwesomeModule
+	],
+	exports: [
+		FontAwesomeModule
 	]
 })
 export class IconsModule {
