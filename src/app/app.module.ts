@@ -6,13 +6,6 @@ import { AppComponent } from './app.component'
 import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from '../environments/environment'
 import { SharedModule } from './shared/shared.module'
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
-import { HttpClient } from '@angular/common/http'
-import { TranslateHttpLoader } from '@ngx-translate/http-loader'
-
-export function httpTranslateLoader(http: HttpClient) {
-	return new TranslateHttpLoader(http)
-}
 
 @NgModule({
 	declarations: [
@@ -22,11 +15,7 @@ export function httpTranslateLoader(http: HttpClient) {
 		BrowserModule.withServerTransition({ appId: 'serverApp' }),
 		AppRoutingModule,
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-		TranslateModule.forRoot({
-			defaultLanguage: 'es',
-			loader: { provide: TranslateLoader, useFactory: httpTranslateLoader, deps: [HttpClient] }
-		}),
-		SharedModule
+		SharedModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

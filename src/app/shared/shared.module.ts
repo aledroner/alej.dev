@@ -8,7 +8,7 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { IconThemePipe } from './pipes/icon-theme.pipe'
 import { HttpClientModule } from '@angular/common/http'
-import { TranslateModule } from '@ngx-translate/core'
+import { I18nModule } from '../i18n/i18n.module'
 
 const components = [
 	HeaderComponent,
@@ -20,7 +20,7 @@ const modules = [
 	RouterModule,
 	HttpClientModule,
 	FontAwesomeModule,
-	TranslateModule
+	I18nModule
 ]
 
 export function themeFactory(themeService: ThemeHandlerService) {
