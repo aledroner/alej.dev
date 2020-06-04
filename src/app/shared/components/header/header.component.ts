@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.service'
+import { Router, NavigationEnd } from '@angular/router'
+import { Subscription } from 'rxjs'
 
 export interface Route {
 	name: string
@@ -15,9 +17,11 @@ export interface IconButton extends Route {
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
 	themeMode: ThemeMode
+	openedMenu: boolean = false
+	routerSubscription: Subscription
 
 	menu: Route[] = [
 		{ name: 'header-nav.home', url: '/' },
@@ -32,11 +36,17 @@ export class HeaderComponent implements OnInit {
 	]
 
 	constructor(
-		private themeService: ThemeHandlerService
+		private themeService: ThemeHandlerService,
+		private router: Router
 	) { }
 
 	ngOnInit(): void {
 		this.setThemeMode()
+		this.routerSubscription = this.router.events.subscribe((route) => {
+			if (route instanceof NavigationEnd) {
+				this.openedMenu = false
+			}
+		})
 	}
 
 	setThemeMode() {
@@ -48,4 +58,9 @@ export class HeaderComponent implements OnInit {
 		this.setThemeMode()
 	}
 
+	ngOnDestroy(): void {
+		if (this.routerSubscription) {
+			this.routerSubscription.unsubscribe()
+		}
+	}
 }

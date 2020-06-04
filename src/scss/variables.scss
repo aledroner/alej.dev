@@ -40,14 +40,15 @@ $gap-size:					 							2rem;
 $header-size:			 								86px;
 $line-height-size:								2.2;
 $logo-size:												48px;
+$logo-text-size:									2.2rem;
 $radius-size:			 								.5rem;
 $sidemenu-size:			 							280px;
 
 // Others
 $shadow-light:										0 0 4px rgba(0, 0, 0, .1);
 $shadow-dark:											0 0 4px rgba(255, 255, 255, .1);
-$bg-transition:										background-color .2s;
-$cubic-transition:								0.3s cubic-bezier(.2, 0.6, 0.35, 1);
+$time-transition:									.4s;
+$cubic-transition:								$time-transition cubic-bezier(.23, 1, .32, 1);
 
 // Screen media queries
 $lg-screen:												1280px;
@@ -72,4 +73,5 @@ $root-config: (
 	gap-size:			 									$gap-size,
 	header-size:										$header-size,
 	logo-size:			 								$logo-size,
+	logo-text-size:	 								$logo-text-size,
 );

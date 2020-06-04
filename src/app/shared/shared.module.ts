@@ -7,10 +7,12 @@ import { IconThemePipe } from './pipes/icon-theme.pipe'
 import { HttpClientModule } from '@angular/common/http'
 import { I18nModule } from '../i18n/i18n.module'
 import { IconsModule } from '../icons/icons.module'
+import { MenuButtonComponent } from './components/menu-button/menu-button.component'
 
 const components = [
 	HeaderComponent,
-	IconThemePipe
+	IconThemePipe,
+	MenuButtonComponent
 ]
 
 const modules = [

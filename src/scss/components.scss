@@ -4,3 +4,14 @@
 .container {
 	padding: var(--gap-size);
 }
+
+.screen-container {
+	max-width: $lg-screen;
+	margin: auto;
+}
+
+.flex-centered {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

@@ -1,35 +1,48 @@
 <header class="main-header">
+	<div class="screen-container">
+		<div class="header-container flex-centered">
 
-	<!-- Logo -->
-	<a class="header-logo" [routerLink]="['/']" [title]="'header-nav.home' | translate">
-		<img class="icon-logo" src="assets/icons/logo.svg" alt="Logo alej.dev">
-		<span class="text-logo">
-			alej<span class="extension">.dev</span>
-		</span>
-	</a>
-
-	<div class="nav-container">
-
-		<!-- Navigation -->
-		<nav class="header-nav">
-			<ul>
-				<li *ngFor="let item of menu">
-					<a [routerLink]=[item.url] routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }" [title]="item.name | translate">{{item.name | translate}}</a>
-				</li>
-			</ul>
-		</nav>
-
-		<!-- Social -->
-		<nav class="social-header-nav">
-			<a class="icon-button" *ngFor="let item of social" target="_blank" [href]="item.url" [title]="item.name | translate">
-				<fa-icon [icon]="['fab', item.icon]"></fa-icon>
+			<!-- Logo -->
+			<a class="header-logo flex-centered" [routerLink]="['/']">
+				<img class="icon-logo" src="assets/icons/logo.svg" alt="Logo alej.dev">
+				<span class="text-logo">
+					alej<span class="extension">.dev</span>
+				</span>
 			</a>
-		</nav>
 
-		<!-- Toggle theme -->
-		<a class="icon-button" (click)="toggleTheme()" [title]="'hint.switch-theme' | translate">
-			<fa-icon [icon]="themeMode | iconTheme"></fa-icon>
-		</a>
+			<nav class="header-nav flex-centered">
 
+				<!-- Pages -->
+				<ul class="pages-nav flex-centered" [class.opened-menu]="openedMenu">
+					<li *ngFor="let item of menu">
+						<a [routerLink]=[item.url] routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }" (click)="openedMenu=false">
+							<span>{{item.name | translate}}</span>
+						</a>
+					</li>
+				</ul>
+
+				<!-- Social -->
+				<ul class="social-nav flex-centered">
+					<li *ngFor="let item of social">
+						<a class="icon-button" target="_blank" [href]="item.url">
+							<fa-icon [icon]="['fab', item.icon]"></fa-icon>
+						</a>
+					</li>
+				</ul>
+
+				<!-- Buttons -->
+				<div class="button-nav flex-centered">
+
+					<a class="icon-button" (click)="toggleTheme()">
+						<fa-icon [icon]="themeMode | iconTheme"></fa-icon>
+					</a>
+
+					<a id="menuToggle" class="icon-button" (click)="openedMenu=!openedMenu">
+						<ale-menu-button [active]="openedMenu"></ale-menu-button>
+					</a>
+				</div>
+
+			</nav>
+		</div>
 	</div>
 </header>

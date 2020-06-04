@@ -1,0 +1,59 @@
+@import '../../../../scss/variables';
+
+$iconSize: 22.4px;
+
+.menu-button-container {
+	width: $iconSize;
+	height: $iconSize;
+
+	&:hover .bar,
+	&:hover .bar:before,
+	&:hover .bar:after,
+	.active .bar:before,
+	.active .bar:after {
+		background-color: var(--link-color);
+	}
+}
+
+.bars-container {
+	width: $iconSize;
+	height: 100%;
+
+	&.active .bar {
+		background-color: transparent;
+
+		&:before {
+			margin-top: 0px;
+			transform: rotate(405deg);
+		}
+
+		&:after {
+			margin-top: 0px;
+			transform: rotate(-405deg);
+		}
+	}
+}
+
+.bar,
+.bar:before,
+.bar:after {
+	display: block;
+	position: absolute;
+	width: $iconSize;
+	height: $border-size;
+	border-radius: 2px;
+	background-color: var(--secondary-text);
+	transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bar {
+	&:before {
+		content: '';
+		margin-top: -8px;
+	}
+
+	&:after {
+		content: '';
+		margin-top: 8px;
+	}
+}
