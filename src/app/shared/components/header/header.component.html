@@ -1,10 +1,10 @@
-<header class="main-header">
+<header id="main-header" class="main-header">
 	<div class="screen-container">
 		<div class="header-container flex-centered">
 
 			<!-- Logo -->
 			<a class="header-logo flex-centered" [routerLink]="['/']">
-				<img class="icon-logo" src="assets/icons/logo.svg" alt="Logo alej.dev">
+				<img class="icon-logo" [src]="'assets/icons/logo' + homeRoute + '.svg'" alt="Logo alej.dev">
 				<span class="text-logo">
 					alej<span class="extension">.dev</span>
 				</span>
@@ -38,7 +38,7 @@
 					</a>
 
 					<a id="menuToggle" class="icon-button" (click)="openedMenu=!openedMenu">
-						<ale-menu-button [active]="openedMenu"></ale-menu-button>
+						<ale-menu-button [active]="openedMenu" [homeRoute]="homeRoute"></ale-menu-button>
 					</a>
 				</div>
 

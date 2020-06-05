@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	themeMode: ThemeMode
 	openedMenu: boolean = false
 	routerSubscription: Subscription
+	homeRoute: string = ''
 
 	menu: Route[] = [
 		{ name: 'header-nav.home', url: '/' },
@@ -41,10 +42,26 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	) { }
 
 	ngOnInit(): void {
+
+		// Set theme mode
 		this.setThemeMode()
+
+		// Router Subscription
 		this.routerSubscription = this.router.events.subscribe((route) => {
 			if (route instanceof NavigationEnd) {
+
+				// Reset menu if route changes
 				this.openedMenu = false
+
+				// Toggle 'home-route' class
+				const classListHeader = document.getElementById('main-header').classList
+				if (route.url === '/') {
+					classListHeader.add('home-route')
+					this.homeRoute = '-home-route'
+				} else {
+					classListHeader.remove('home-route')
+					this.homeRoute = ''
+				}
 			}
 		})
 	}

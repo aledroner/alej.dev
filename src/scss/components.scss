@@ -1,6 +1,10 @@
 // COMPONENTS
 @import 'variables';
 
+.page-wrapper {
+	padding: calc(var(--header-size) + var(--gap-size)) var(--gap-size) var(--gap-size);
+}
+
 .container {
 	padding: var(--gap-size);
 }

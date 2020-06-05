@@ -1,0 +1,12 @@
+@import '../../../scss/variables';
+
+.presentation {
+	width: 100%;
+	min-height: 500px;
+	max-height: 700px;
+	height: calc(100vh - 80px);
+	background: linear-gradient(165deg,
+			$secondary-color 8%,
+			$primary-color 46%,
+			$tertiary-color);
+}
