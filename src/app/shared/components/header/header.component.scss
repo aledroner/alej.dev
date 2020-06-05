@@ -17,6 +17,8 @@
 .header-logo {
 	.icon-logo {
 		max-width: var(--logo-size);
+		width: var(--logo-size);
+		height: auto;
 		margin-right: var(--gap-size);
 		transition: max-width $time-transition;
 	}
