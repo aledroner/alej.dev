@@ -1,8 +1,8 @@
 // VARIABLES
 
 // Colors
-$primary-color:									#1e54c4;
-$secondary-color:								#7a37a4;
+$primary-color:									#2141f8;
+$secondary-color:								#9827df;
 $tertiary-color:								#3df7e3;
 $link-color:											$primary-color;
 $success-color:			 						#51df70;
@@ -32,7 +32,7 @@ $light-link-color:								$link-color;
 $dark-background-color:						$dark-1;
 $dark-header-background-color:		$dark-background-color;	
 $dark-foreground-color:						$light-0;
-$dark-link-color:									lighten($link-color, 20%);
+$dark-link-color:									lighten($link-color, 10%);
 
 // Sizes
 $border-size:			 								3px;
