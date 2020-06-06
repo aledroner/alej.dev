@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core'
 import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.service'
 import { Router, NavigationEnd } from '@angular/router'
 import { Subscription } from 'rxjs'
+import { isPlatformBrowser } from '@angular/common'
 
 export interface Route {
 	name: string
@@ -38,7 +39,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 	constructor(
 		private themeService: ThemeHandlerService,
-		private router: Router
+		private router: Router,
+		@Inject(PLATFORM_ID) private platformId: object
 	) { }
 
 	ngOnInit(): void {
@@ -54,13 +56,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 				this.openedMenu = false
 
 				// Toggle 'home-route' class
-				const classListHeader = document.getElementById('main-header').classList
-				if (route.url === '/') {
-					classListHeader.add('home-route')
-					this.homeRoute = '-home-route'
-				} else {
-					classListHeader.remove('home-route')
-					this.homeRoute = ''
+				if (isPlatformBrowser(this.platformId)) {
+					const classListHeader = document.getElementById('main-header').classList
+					if (route.url === '/') {
+						classListHeader.add('home-route')
+						this.homeRoute = '-home-route'
+					} else {
+						classListHeader.remove('home-route')
+						this.homeRoute = ''
+					}
 				}
 			}
 		})
