@@ -3,8 +3,7 @@
 .presentation {
 	width: 100%;
 	min-height: 500px;
-	max-height: 700px;
-	height: calc(100vh - 80px);
+	height: 100vh;
 	background: $gradient;
 	background-size: 200% 200%;
 	background-repeat: no-repeat;
