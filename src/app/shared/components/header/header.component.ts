@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core'
 import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.service'
 import { Router, NavigationEnd } from '@angular/router'
-import { Subscription } from 'rxjs'
+import { Subscription, Observable } from 'rxjs'
 import { isPlatformBrowser } from '@angular/common'
 
 export interface Route {
@@ -22,8 +22,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 	themeMode: ThemeMode
 	openedMenu: boolean = false
+	resetScroll$: Observable<boolean>
 	routerSubscription: Subscription
-	homeRoute: string = ''
+	homeRoute: boolean
+	homeRouteClass: string = 'home-route'
 
 	menu: Route[] = [
 		{ name: 'header-nav.home', url: '/' },
@@ -44,30 +46,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	) { }
 
 	ngOnInit(): void {
-
-		// Set theme mode
 		this.setThemeMode()
-
-		// Router Subscription
-		this.routerSubscription = this.router.events.subscribe((route) => {
-			if (route instanceof NavigationEnd) {
-
-				// Reset menu if route changes
-				this.openedMenu = false
-
-				// Toggle 'home-route' class
-				if (isPlatformBrowser(this.platformId)) {
-					const classListHeader = document.getElementById('main-header').classList
-					if (route.url === '/') {
-						classListHeader.add('home-route')
-						this.homeRoute = '-home-route'
-					} else {
-						classListHeader.remove('home-route')
-						this.homeRoute = ''
-					}
-				}
-			}
-		})
+		this.setHomeRouteConfig()
 	}
 
 	setThemeMode() {
@@ -77,6 +57,29 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	toggleTheme(): void {
 		this.themeService.toggleTheme()
 		this.setThemeMode()
+	}
+
+	setHomeRouteConfig(): void {
+		this.routerSubscription = this.router.events.subscribe((route) => {
+			if (route instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
+				this.openedMenu = false
+				this.toggleHomeRouteClass()
+				window.scrollTo(0, 0)
+			}
+		})
+	}
+
+	toggleHomeRouteClass(scrolled?: boolean) {
+		if (isPlatformBrowser(this.platformId)) {
+			const classListHeader = document.getElementById('main-header').classList
+			if (window.location.pathname === '/' && !scrolled) {
+				this.homeRoute = true
+				classListHeader.add(this.homeRouteClass)
+			} else {
+				this.homeRoute = false
+				classListHeader.remove(this.homeRouteClass)
+			}
+		}
 	}
 
 	ngOnDestroy(): void {

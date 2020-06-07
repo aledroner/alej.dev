@@ -9,6 +9,12 @@ $success-color:			 						#51df70;
 $info-color:			 							#348fe4;
 $warning-color:			 						#ffd95b;
 $error-color:			 							#f75f5f;
+$gradient:												linear-gradient(
+																		165deg,
+																		$secondary-color 8%,
+																		$primary-color 46%,
+																		$tertiary-color
+																	);
 
 $black:													#000;
 $dark-0:			 										lighten($black, 3%);

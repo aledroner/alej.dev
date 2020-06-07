@@ -1,0 +1,15 @@
+@import '../../../../scss/variables';
+
+#progress-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 0;
+	z-index: 1;
+	border-top-right-radius: $border-size / 2;
+	border-bottom-right-radius: $border-size / 2;
+	height: $border-size;
+	background: $gradient;
+	transition: $time-transition width;
+}

@@ -1,10 +1,11 @@
 <header id="main-header" class="main-header">
+	<ale-progress-bar (scrolled)="toggleHomeRouteClass($event)"></ale-progress-bar>
 	<div class="screen-container">
 		<div class="header-container flex-centered">
 
 			<!-- Logo -->
 			<a class="header-logo flex-centered" [routerLink]="['/']">
-				<img class="icon-logo" [src]="'assets/icons/logo' + homeRoute + '.svg'" alt="Logo alej.dev">
+				<img class="icon-logo" [src]="homeRoute | logoPath: homeRouteClass" alt="Logo alej.dev">
 				<span class="text-logo">
 					alej<span class="extension">.dev</span>
 				</span>

@@ -7,12 +7,16 @@ import { IconThemePipe } from './pipes/icon-theme.pipe'
 import { HttpClientModule } from '@angular/common/http'
 import { I18nModule } from '../i18n/i18n.module'
 import { IconsModule } from '../icons/icons.module'
-import { MenuButtonComponent } from './components/menu-button/menu-button.component'
+import { MenuButtonComponent } from './components/menu-button/menu-button.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { LogoPathPipe } from './pipes/logo-path.pipe'
 
 const components = [
 	HeaderComponent,
+	MenuButtonComponent,
+	ProgressBarComponent,
 	IconThemePipe,
-	MenuButtonComponent
+	LogoPathPipe
 ]
 
 const modules = [
@@ -29,7 +33,7 @@ export function themeFactory(themeService: ThemeHandlerService) {
 
 @NgModule({
 	declarations: [
-		...components
+		...components,
 	],
 	imports: [
 		...modules,
