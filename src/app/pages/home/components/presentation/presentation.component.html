@@ -1,0 +1,17 @@
+<div class="presentation">
+	<div class="screen-container flex-center">
+		<div class="presentation-content">
+			<h1>{{'text.hello' | translate}}</h1>
+			<h2>Desarrollador frontend</h2>
+			<div class="social-icons">
+				<ale-icon-list [data]="socialMenu$ | async"></ale-icon-list>
+			</div>
+		</div>
+	</div>
+	<div class="presentation-footer">
+		<a href="#top">
+			<fa-icon class="scroll-icon mouse animate" icon="mouse"></fa-icon>
+			<fa-icon class="scroll-icon arrow" icon="long-arrow-alt-down"></fa-icon>
+		</a>
+	</div>
+</div>

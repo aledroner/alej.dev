@@ -1,0 +1,93 @@
+@import '../../../../../scss/variables';
+
+$h1-size: 5rem;
+$h2-size: $h2-font-size;
+
+.presentation {
+	width: 100%;
+	min-height: 500px;
+	height: 100vh;
+	color: $white;
+	background: $gradient;
+	background-size: 200% 200%;
+	background-repeat: no-repeat;
+	transition: $cubic-transition;
+
+	&:hover {
+		background-position: 100% 100%;
+	}
+
+	.screen-container {
+		height: 75%;
+	}
+
+	.presentation-content {
+		width: 100%;
+		padding: 0 var(--gap-size);
+		text-align: center;
+	}
+
+	h1 {
+		margin-bottom: 1rem;
+		font-size: 5rem;
+		color: $translucent-text;
+	}
+
+	h2 {
+		margin-top: 1rem;
+		font-weight: normal;
+		color: $translucent-text;
+	}
+
+	.presentation-footer {
+		position: absolute;
+		bottom: 2rem;
+		width: 100%;
+		text-align: center;
+
+		a {
+			display: flex;
+			flex-direction: column;
+			color: $translucent-text;
+
+			&:hover {
+				color: $translucent-text-hover;
+			}
+		}
+
+		.scroll-icon {
+			position: relative;
+
+			&.mouse {
+				margin-bottom: 1rem;
+				font-size: 2rem;
+			}
+
+			&.arrow {
+				font-size: 1.6rem;
+			}
+
+			&.animate {
+				animation: down-pulse 5s ease-out 0s infinite;
+			}
+		}
+	}
+}
+
+:host .social-icons ::ng-deep {
+	a.icon-button {
+		font-size: 2.4rem;
+	}
+}
+
+@media only screen and (max-width: $sm-screen) {
+	.presentation {
+		h1 {
+			font-size: $h1-font-size;
+		}
+
+		h2 {
+			font-size: $h2-font-size * .7;
+		}
+	}
+}

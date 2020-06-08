@@ -1,21 +1,21 @@
 <header id="main-header" class="main-header">
 	<ale-progress-bar (scrolled)="toggleHomeRouteClass($event)"></ale-progress-bar>
 	<div class="screen-container">
-		<div class="header-container flex-centered">
+		<div class="header-container flex-center">
 
 			<!-- Logo -->
-			<a class="header-logo flex-centered" [routerLink]="['/']">
+			<a class="header-logo flex-center" [routerLink]="['/']">
 				<img class="icon-logo" [src]="homeRoute | logoPath: homeRouteClass" alt="Logo alej.dev">
 				<span class="text-logo">
 					alej<span class="extension">.dev</span>
 				</span>
 			</a>
 
-			<nav class="header-nav flex-centered">
+			<nav class="header-nav flex-center">
 
 				<!-- Pages -->
-				<ul class="pages-nav flex-centered" [class.opened-menu]="openedMenu">
-					<li *ngFor="let item of menu">
+				<ul class="pages-nav flex-center" [class.opened-menu]="openedMenu">
+					<li *ngFor="let item of mainMenu$ | async">
 						<a [routerLink]=[item.url] routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }" (click)="openedMenu=false">
 							<span>{{item.name | translate}}</span>
 						</a>
@@ -23,16 +23,10 @@
 				</ul>
 
 				<!-- Social -->
-				<ul class="social-nav flex-centered">
-					<li *ngFor="let item of social">
-						<a class="icon-button" target="_blank" [href]="item.url">
-							<fa-icon [icon]="['fab', item.icon]"></fa-icon>
-						</a>
-					</li>
-				</ul>
+				<ale-icon-list [data]="socialMenu$ | async"></ale-icon-list>
 
 				<!-- Buttons -->
-				<div class="button-nav flex-centered">
+				<div class="button-nav flex-center">
 
 					<a class="icon-button" (click)="toggleTheme()">
 						<fa-icon [icon]="themeMode | iconTheme"></fa-icon>

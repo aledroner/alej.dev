@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core'
 
 @Component({
 	selector: 'ale-menu-button',
 	templateUrl: './menu-button.component.html',
-	styleUrls: ['./menu-button.component.scss']
+	styleUrls: ['./menu-button.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuButtonComponent implements OnInit {
 

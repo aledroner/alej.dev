@@ -1,15 +1,1 @@
 @import '../../../scss/variables';
-
-.presentation {
-	width: 100%;
-	min-height: 500px;
-	height: 100vh;
-	background: $gradient;
-	background-size: 200% 200%;
-	background-repeat: no-repeat;
-	transition: $cubic-transition;
-
-	&:hover {
-		background-position: 100% 100%;
-	}
-}

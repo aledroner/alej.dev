@@ -7,6 +7,7 @@
 	background-color: var(--header-background-color);
 	box-shadow: var(--shadow);
 	transition: background-color $time-transition;
+	z-index: 1;
 
 	a {
 		color: var(--secondary-text);
@@ -24,7 +25,7 @@
 		height: auto;
 		max-width: var(--logo-size);
 		margin-right: 1rem;
-		transition: max-width $time-transition;
+		transition: all $time-transition;
 	}
 
 	.text-logo {
@@ -36,9 +37,17 @@
 			color: var(--secondary-text);
 		}
 	}
+
+	&:hover {
+		.icon-logo {
+			transform: rotate(360deg);
+			transition: all $time-transition * 2 cubic-bezier(.680, -.550, .265, 1.550);
+		}
+	}
 }
 
-.header-nav {
+.header-nav,
+:host .header-nav ::ng-deep.icon-list {
 	a {
 		color: var(--secondary-text);
 		cursor: pointer;
@@ -87,6 +96,16 @@
 	}
 }
 
+:host .home-route ::ng-deep.icon-list {
+	a.icon-button {
+		color: $translucent-text;
+
+		&:hover {
+			color: $translucent-text-hover;
+		}
+	}
+}
+
 // Home route
 .main-header.home-route {
 	background-color: transparent;
@@ -94,12 +113,35 @@
 
 	a,
 	.text-logo,
-	.text-logo .extension,
+	.text-logo .extension {
+		border-bottom-color: $white;
+		color: $translucent-text;
+	}
+
 	a.router-link-active,
 	a:hover,
 	a:after {
 		border-bottom-color: $white;
-		color: $white;
+		color: $translucent-text-hover;
+	}
+
+	.header-logo {
+
+		.icon-logo {
+			opacity: .8;
+		}
+
+		&:hover {
+
+			.icon-logo {
+				opacity: 1;
+			}
+
+			.text-logo,
+			.extension {
+				color: $translucent-text-hover;
+			}
+		}
 	}
 }
 
@@ -116,7 +158,7 @@
 		flex-direction: column;
 		justify-content: space-around;
 		position: absolute;
-		top: calc(var(--header-size));
+		top: var(--header-size);
 		left: 0;
 		width: 100%;
 		height: 0;

@@ -1,0 +1,7 @@
+<ul class="icon-list">
+	<li *ngFor="let item of data">
+		<a class="icon-button" [target]="item.target ? item.taget : '_self'" [href]="item.url">
+			<fa-icon [icon]="['fab', item.icon]"></fa-icon>
+		</a>
+	</li>
+</ul>

@@ -3,15 +3,7 @@ import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.ser
 import { Router, NavigationEnd } from '@angular/router'
 import { Subscription, Observable } from 'rxjs'
 import { isPlatformBrowser } from '@angular/common'
-
-export interface Route {
-	name: string
-	url: string,
-}
-
-export interface IconButton extends Route {
-	icon: string
-}
+import { DataService } from '../../services/data.service'
 
 @Component({
 	selector: 'ale-header',
@@ -20,32 +12,28 @@ export interface IconButton extends Route {
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
+	mainMenu$: Observable<object>
+	socialMenu$: Observable<object>
+
 	themeMode: ThemeMode
 	openedMenu: boolean = false
+
 	resetScroll$: Observable<boolean>
 	routerSubscription: Subscription
 	homeRoute: boolean
 	homeRouteClass: string = 'home-route'
 
-	menu: Route[] = [
-		{ name: 'header-nav.home', url: '/' },
-		{ name: 'header-nav.blog', url: '/blog' },
-		{ name: 'header-nav.about', url: '/about' },
-		{ name: 'header-nav.contact', url: '/contact' }
-	]
-
-	social: IconButton[] = [
-		{ name: 'social.github', url: 'https://github.com/aledroner', icon: 'github' },
-		{ name: 'social.twitter', url: 'https://twitter.com/alej_dev', icon: 'twitter' }
-	]
-
 	constructor(
+		private data: DataService,
 		private themeService: ThemeHandlerService,
 		private router: Router,
 		@Inject(PLATFORM_ID) private platformId: object
 	) { }
 
 	ngOnInit(): void {
+		this.mainMenu$ = this.data.mainMenu
+		this.socialMenu$ = this.data.socialMenu
+
 		this.setThemeMode()
 		this.setHomeRouteConfig()
 	}

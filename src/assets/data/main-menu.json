@@ -1,0 +1,13 @@
+[{
+	"name": "header-nav.home",
+	"url": "/"
+}, {
+	"name": "header-nav.blog",
+	"url": "/blog"
+}, {
+	"name": "header-nav.about",
+	"url": "/about"
+}, {
+	"name": "header-nav.contact",
+	"url": "/contact"
+}]

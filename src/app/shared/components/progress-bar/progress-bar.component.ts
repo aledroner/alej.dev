@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Output, Inject, PLATFORM_ID, EventEmitter } from '@angular/core'
+import { Component, OnInit, OnDestroy, Output, Inject, PLATFORM_ID, EventEmitter, ChangeDetectionStrategy } from '@angular/core'
 
 import { Subscription, fromEvent, Observable } from 'rxjs'
 import { map, tap, throttleTime } from 'rxjs/operators'
@@ -8,7 +8,8 @@ import { Router, NavigationEnd } from '@angular/router'
 @Component({
 	selector: 'ale-progress-bar',
 	template: `<div id="progress-bar"></div>`,
-	styleUrls: ['./progress-bar.component.scss']
+	styleUrls: ['./progress-bar.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProgressBarComponent implements OnInit, OnDestroy {
 

@@ -51,6 +51,8 @@ $radius-size:			 								.5rem;
 $sidemenu-size:			 							280px;
 
 // Others
+$translucent-text:								rgba($color: $white, $alpha: .8);
+$translucent-text-hover:					rgba($color: $white, $alpha: 1);
 $shadow-light:										0 0 4px rgba(0, 0, 0, .1);
 $shadow-dark:											0 0 4px rgba(255, 255, 255, .1);
 $time-transition:									.4s;
@@ -62,7 +64,7 @@ $sm-screen:												960px;
 $xs-screen:												600px;
 
 // Fonts
-$primary-font:			 							'Poppins', sans-serif; //'Headland One', serif;
+$primary-font:			 							'Poppins', sans-serif;
 $secondary-font:			 						$primary-font;
 $tertiary-font:			 							'Inconsolata', monospace;
 $main-font-size:			 						1.1rem;

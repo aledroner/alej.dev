@@ -7,7 +7,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import {
 	faMoon,
-	faSun
+	faSun,
+	faChevronDown,
+	faArrowDown,
+	faLongArrowAltDown,
+	faMouse
 } from '@fortawesome/free-solid-svg-icons'
 
 @NgModule({
@@ -26,6 +30,6 @@ export class IconsModule {
 		library: FaIconLibrary
 	) {
 		faConfig.defaultPrefix = 'fas'
-		library.addIcons(faGithub, faMoon, faSun, faTwitter)
+		library.addIcons(faGithub, faMoon, faChevronDown, faArrowDown, faLongArrowAltDown, faMouse, faSun, faTwitter)
 	}
 }
