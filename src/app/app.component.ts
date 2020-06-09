@@ -20,9 +20,8 @@ export class AppComponent implements OnInit, OnDestroy {
 	ngOnInit(): void {
 		// Service Worker
 		if (this.swUpdate.isEnabled) {
-			this.SwUpdateSubscription = this.swUpdate.available.subscribe(() => {
-				setTimeout(() => window.location.reload(), 3000)
-			})
+			this.SwUpdateSubscription = this.swUpdate.available
+				.subscribe(() => window.location.reload())
 		}
 	}
 
