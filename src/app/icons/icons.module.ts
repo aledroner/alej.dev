@@ -1,18 +1,8 @@
-import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
 import { FaConfig, FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import {
-	faGithub,
-	faTwitter
-} from '@fortawesome/free-brands-svg-icons'
-import {
-	faMoon,
-	faSun,
-	faChevronDown,
-	faArrowDown,
-	faLongArrowAltDown,
-	faMouse
-} from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faLongArrowAltDown, faMoon, faMouse, faSun } from '@fortawesome/free-solid-svg-icons'
 
 @NgModule({
 	declarations: [],
@@ -30,6 +20,13 @@ export class IconsModule {
 		library: FaIconLibrary
 	) {
 		faConfig.defaultPrefix = 'fas'
-		library.addIcons(faGithub, faMoon, faChevronDown, faArrowDown, faLongArrowAltDown, faMouse, faSun, faTwitter)
+		library.addIcons(
+			faGithub,
+			faLongArrowAltDown,
+			faMoon,
+			faMouse,
+			faSun,
+			faTwitter
+		)
 	}
 }
