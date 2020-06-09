@@ -61,21 +61,21 @@ $iconSize: 22.4px;
 // Home route
 .menu-button-container.home-route {
 
+	.bar,
+	.bar:before,
+	.bar:after {
+		background-color: $translucent-text;
+	}
+
 	&:hover .bar,
 	&:hover .bar:before,
 	&:hover .bar:after,
 	.active .bar:before,
 	.active .bar:after {
-		background-color: $white
+		background-color: $translucent-text-hover
 	}
 
 	.active .bar {
 		background-color: transparent;
-	}
-
-	.bar,
-	.bar:before,
-	.bar:after {
-		background-color: $white;
 	}
 }

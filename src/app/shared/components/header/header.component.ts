@@ -61,6 +61,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 	toggleHomeRouteClass(scrolled?: boolean) {
 		if (isPlatformBrowser(this.platformId)) {
+
+			// set document height
+			addEventListener('resize', setDocHeight)
+			addEventListener('orientationchange', setDocHeight)
+
+			// toggle home-route class
 			const classListHeader = document.getElementById('main-header').classList
 			if (window.location.pathname === '/' && !scrolled) {
 				this.homeRoute = true
@@ -77,4 +83,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 			this.routerSubscription.unsubscribe()
 		}
 	}
+}
+
+const setDocHeight = () => {
+	document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`)
 }
