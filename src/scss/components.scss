@@ -1,6 +1,14 @@
 // COMPONENTS
 @import 'variables';
 
+.menu-opened-overflow {
+	overflow-y: hidden;
+}
+
+.menu-opened-gap {
+	padding-right: $scroll-size;
+}
+
 .page-wrapper {
 	padding: calc(var(--header-size) + var(--gap-size)) var(--gap-size) var(--gap-size);
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 
 @Component({
 	selector: 'ale-menu-button',
@@ -6,13 +6,10 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 	styleUrls: ['./menu-button.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MenuButtonComponent implements OnInit {
+export class MenuButtonComponent {
 
 	@Input() active: boolean
 	@Input() homeRoute: boolean
 
 	constructor() { }
-
-	ngOnInit(): void { }
-
 }

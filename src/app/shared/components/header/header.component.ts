@@ -1,7 +1,7 @@
 import { Observable, Subscription } from 'rxjs'
 
 import { isPlatformBrowser } from '@angular/common'
-import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core'
+import { Component, DoCheck, Inject, KeyValueDiffer, KeyValueDiffers, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
 
 import { DataService } from '../../services/data.service'
@@ -12,7 +12,7 @@ import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.ser
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy, DoCheck {
 
 	mainMenu$: Observable<object>
 	socialMenu$: Observable<object>
@@ -25,12 +25,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
 	homeRoute: boolean
 	homeRouteClass: string = 'home-route'
 
+	differ: KeyValueDiffer<string, any>
+
 	constructor(
 		private data: DataService,
 		private themeService: ThemeHandlerService,
 		private router: Router,
+		private differs: KeyValueDiffers,
 		@Inject(PLATFORM_ID) private platformId: object
-	) { }
+	) {
+		this.differ = this.differs.find({}).create()
+	}
 
 	ngOnInit(): void {
 		this.mainMenu$ = this.data.mainMenu
@@ -38,6 +43,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 		this.setThemeMode()
 		this.setHomeRouteConfig()
+	}
+
+	ngDoCheck(): void {
+		const change = this.differ.diff(this)
+		if (change && isPlatformBrowser(this.platformId)) {
+			change.forEachChangedItem(item => {
+				if (item.key === 'openedMenu') {
+					document.body.classList.toggle('menu-opened-gap')
+					document.body.classList.toggle('menu-opened-overflow')
+					document.getElementById('main-header').classList.toggle('menu-opened-gap')
+				}
+			})
+		}
 	}
 
 	setThemeMode() {
@@ -55,19 +73,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
 				this.openedMenu = false
 				this.toggleHomeRouteClass()
 				window.scrollTo(0, 0)
+
+				// set document height
+				setDocHeight()
+				addEventListener('resize', setDocHeight)
+				addEventListener('orientationchange', setDocHeight)
 			}
 		})
 	}
 
 	toggleHomeRouteClass(scrolled?: boolean) {
 		if (isPlatformBrowser(this.platformId)) {
-
-			// set document height
-			setDocHeight()
-			addEventListener('resize', setDocHeight)
-			addEventListener('orientationchange', setDocHeight)
-
-			// toggle home-route class
 			const classListHeader = document.getElementById('main-header').classList
 			if (window.location.pathname === '/' && !scrolled) {
 				this.homeRoute = true
