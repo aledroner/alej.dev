@@ -46,9 +46,11 @@ $h2-size: $h2-font-size;
 		text-align: center;
 
 		a {
-			display: flex;
+			display: inline-flex;
 			flex-direction: column;
+			padding: 1rem 2rem;
 			color: $translucent-text;
+			cursor: pointer;
 
 			&:hover {
 				color: $translucent-text-hover;

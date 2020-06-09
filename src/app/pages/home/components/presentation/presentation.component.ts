@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs'
 import { DataService } from 'src/app/shared/services/data.service'
 
-import { Component, OnInit } from '@angular/core'
+import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 
 @Component({
 	selector: 'ale-presentation',
@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core'
 export class PresentationComponent implements OnInit {
 
 	socialMenu$: Observable<object>
+
+	@Output() clickScrollButton: EventEmitter<object> = new EventEmitter<object>()
 
 	constructor(
 		public data: DataService

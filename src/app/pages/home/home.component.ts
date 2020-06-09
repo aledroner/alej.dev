@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 
 @Component({
 	selector: 'ale-home',
@@ -7,8 +7,17 @@ import { Component, OnInit } from '@angular/core'
 })
 export class HomeComponent implements OnInit {
 
+	@ViewChild('mainWrapper') mainWrapper: ElementRef
+
 	constructor() { }
 
 	ngOnInit(): void { }
 
+	scrollToMain(): void {
+		this.mainWrapper.nativeElement.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+			inline: 'nearest'
+		})
+	}
 }
