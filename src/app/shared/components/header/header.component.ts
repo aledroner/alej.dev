@@ -63,6 +63,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 		if (isPlatformBrowser(this.platformId)) {
 
 			// set document height
+			setDocHeight()
 			addEventListener('resize', setDocHeight)
 			addEventListener('orientationchange', setDocHeight)
 
