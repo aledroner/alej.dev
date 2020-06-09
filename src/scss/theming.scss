@@ -16,6 +16,7 @@ $theme-config: (
 	warning-color:						 	($warning-color, lighten($warning-color, 20%)),
 	error-color:					 			($error-color, lighten($error-color, 20%)),
 	shadow:											($shadow-light, $shadow-dark),
+	scrollbar-color:						($light-scrollbar, $dark-scrollbar),
 );
 
 .light-mode {

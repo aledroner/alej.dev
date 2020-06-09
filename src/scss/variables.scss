@@ -30,18 +30,22 @@ $light-2:			 										darken($white, 20%);
 $light-3:			 										darken($white, 30%);
 $light-4:			 										darken($white, 40%);
 
+// Theming
 $light-background-color:					$white;
 $light-header-background-color:		$light-background-color;
 $light-foreground-color:					$dark-1;
 $light-link-color:								$link-color;
+$light-scrollbar:									rgba($color: $black, $alpha: .4);
 
 $dark-background-color:						$dark-1;
 $dark-header-background-color:		$dark-background-color;	
 $dark-foreground-color:						$light-0;
 $dark-link-color:									lighten($link-color, 10%);
+$dark-scrollbar:									rgba($color: $white, $alpha: .25);
 
 // Sizes
 $border-size:			 								3px;
+$scroll-size:											.5rem;
 $gap-size:					 							2rem;
 $header-size:			 								86px;
 $line-height-size:								2.2;
@@ -49,7 +53,6 @@ $logo-size:												48px;
 $logo-text-size:									2.2rem;
 $radius-size:			 								.5rem;
 $sidemenu-size:			 							280px;
-$scroll-size:											17px;
 
 // Others
 $translucent-text:								rgba($color: $white, $alpha: .8);

@@ -4,7 +4,7 @@
 .main-header {
 	position: fixed;
 	top: 0;
-	width: 100%;
+	width: calc(100% + #{$scroll-size});
 	background-color: var(--header-background-color);
 	box-shadow: var(--shadow);
 	transition: background-color $time-transition;
