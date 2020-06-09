@@ -72,7 +72,6 @@ export class HeaderComponent implements OnInit, OnDestroy, DoCheck {
 			if (route instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
 				this.openedMenu = false
 				this.toggleHomeRouteClass()
-				window.scrollTo(0, 0)
 
 				// set document height
 				setDocHeight()
