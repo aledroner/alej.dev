@@ -111,11 +111,17 @@
 	background-color: transparent;
 	box-shadow: none;
 
-	a,
-	.text-logo,
-	.text-logo .extension {
+	a {
 		border-bottom-color: $white;
 		color: $translucent-text;
+	}
+
+	.text-logo {
+		color: $white;
+
+		.extension {
+			color: $translucent-text;
+		}
 	}
 
 	a.router-link-active,
