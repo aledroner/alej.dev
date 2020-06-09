@@ -1,7 +1,9 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
-import { LocalStorageService } from './local-storage.service'
+
 import { isPlatformBrowser } from '@angular/common'
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core'
+
+import { LocalStorageService } from './local-storage.service'
 
 export enum ThemeMode {
 	DARK = 'dark-mode',

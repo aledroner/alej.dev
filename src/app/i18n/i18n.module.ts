@@ -1,8 +1,8 @@
-import { NgModule, Inject, PLATFORM_ID } from '@angular/core'
+import { isPlatformBrowser } from '@angular/common'
 import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { Inject, NgModule, PLATFORM_ID } from '@angular/core'
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
-import { isPlatformBrowser } from '@angular/common'
 
 @NgModule({
 	imports: [

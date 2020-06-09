@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
+
 import { Subscription } from 'rxjs'
+
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { SwUpdate } from '@angular/service-worker'
 
 @Component({

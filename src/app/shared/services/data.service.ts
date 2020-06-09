@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core'
-import { Route, IconButton } from '../models/data.model'
 import { Observable } from 'rxjs'
+
 import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
+
+import { IconButton, Route } from '../models/data.model'
 
 @Injectable({
 	providedIn: 'root'

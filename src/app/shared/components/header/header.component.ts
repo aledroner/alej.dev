@@ -1,9 +1,11 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core'
-import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.service'
-import { Router, NavigationEnd } from '@angular/router'
-import { Subscription, Observable } from 'rxjs'
+import { Observable, Subscription } from 'rxjs'
+
 import { isPlatformBrowser } from '@angular/common'
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core'
+import { NavigationEnd, Router } from '@angular/router'
+
 import { DataService } from '../../services/data.service'
+import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.service'
 
 @Component({
 	selector: 'ale-header',

@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy, Output, Inject, PLATFORM_ID, EventEmitter, ChangeDetectionStrategy } from '@angular/core'
-
-import { Subscription, fromEvent, Observable } from 'rxjs'
+import { fromEvent, Observable, Subscription } from 'rxjs'
 import { map, tap, throttleTime } from 'rxjs/operators'
+
 import { isPlatformBrowser } from '@angular/common'
-import { Router, NavigationEnd } from '@angular/router'
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnDestroy, OnInit, Output, PLATFORM_ID } from '@angular/core'
+import { NavigationEnd, Router } from '@angular/router'
 
 @Component({
 	selector: 'ale-progress-bar',

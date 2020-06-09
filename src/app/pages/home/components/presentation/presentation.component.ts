@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { DataService } from 'src/app/shared/services/data.service'
 import { Observable } from 'rxjs'
+import { DataService } from 'src/app/shared/services/data.service'
+
+import { Component, OnInit } from '@angular/core'
 
 @Component({
 	selector: 'ale-presentation',
