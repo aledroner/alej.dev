@@ -1,5 +1,5 @@
 import { fromEvent, Observable, Subscription } from 'rxjs'
-import { map, tap, throttleTime } from 'rxjs/operators'
+import { auditTime, map, tap } from 'rxjs/operators'
 
 import { isPlatformBrowser } from '@angular/common'
 import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnDestroy, OnInit, Output, PLATFORM_ID } from '@angular/core'
@@ -36,7 +36,7 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
 			this.progressBar = document.getElementById('progress-bar')
 
 			this.scroll$ = fromEvent(document, 'scroll').pipe(
-				throttleTime(20),
+				auditTime(50),
 				map(() => this.docElement.scrollTop),
 				tap((scrollTop) => this.scrolled.emit(scrollTop > 100 ? true : false))
 			)
