@@ -1,12 +1,13 @@
 import { Observable } from 'rxjs'
 import { DataService } from 'src/app/shared/services/data.service'
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core'
 
 @Component({
 	selector: 'ale-presentation',
 	templateUrl: './presentation.component.html',
-	styleUrls: ['./presentation.component.scss']
+	styleUrls: ['./presentation.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PresentationComponent implements OnInit {
 
