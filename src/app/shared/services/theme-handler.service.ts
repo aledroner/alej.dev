@@ -42,8 +42,9 @@ export class ThemeHandlerService {
 	}
 
 	private setTheme(mode: ThemeMode): void {
+		document.body.classList.remove(this.theme$.value)
 		this.theme$.next(mode)
-		document.body.classList.value = mode
+		document.body.classList.add(mode)
 		this.localStorage.setItem(this.THEME_KEY, mode)
 	}
 }
