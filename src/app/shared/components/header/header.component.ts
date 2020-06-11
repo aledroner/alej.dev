@@ -1,9 +1,11 @@
 import { Observable, Subscription } from 'rxjs'
 
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout'
 import { isPlatformBrowser } from '@angular/common'
 import { Component, DoCheck, Inject, KeyValueDiffer, KeyValueDiffers, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
 
+import { AleBreakpoints } from '../../models/consts.model'
 import { DataService } from '../../services/data.service'
 import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.service'
 
@@ -19,6 +21,8 @@ export class HeaderComponent implements OnInit, OnDestroy, DoCheck {
 
 	themeMode: ThemeMode
 	openedMenu: boolean = false
+	desktop: boolean = false
+	breakpointSubscription: Subscription
 
 	resetScroll$: Observable<boolean>
 	routerSubscription: Subscription
@@ -32,12 +36,17 @@ export class HeaderComponent implements OnInit, OnDestroy, DoCheck {
 		private themeService: ThemeHandlerService,
 		private router: Router,
 		private differs: KeyValueDiffers,
+		private breakpointObserver: BreakpointObserver,
 		@Inject(PLATFORM_ID) private platformId: object
 	) {
 		this.differ = this.differs.find({}).create()
 	}
 
 	ngOnInit(): void {
+		this.breakpointSubscription = this.breakpointObserver
+			.observe([AleBreakpoints.Small, AleBreakpoints.Medium])
+			.subscribe((state: BreakpointState) => this.desktop = state.matches ? false : true)
+
 		this.mainMenu$ = this.data.mainMenu
 		this.socialMenu$ = this.data.socialMenu
 
@@ -97,6 +106,9 @@ export class HeaderComponent implements OnInit, OnDestroy, DoCheck {
 	ngOnDestroy(): void {
 		if (this.routerSubscription) {
 			this.routerSubscription.unsubscribe()
+		}
+		if (this.breakpointSubscription) {
+			this.breakpointSubscription.unsubscribe()
 		}
 	}
 }

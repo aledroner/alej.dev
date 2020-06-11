@@ -14,7 +14,7 @@
 			<nav class="header-nav flex-center">
 
 				<!-- Pages -->
-				<ul class="pages-nav flex-center" [class.opened-menu]="openedMenu">
+				<ul class="pages-nav flex-center" [class.opened-menu]="openedMenu" [hidden]="!desktop && !openedMenu">
 					<li *ngFor="let item of mainMenu$ | async">
 						<a [routerLink]=[item.url] routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }" (click)="openedMenu=false">
 							<span>{{item.name | translate}}</span>
@@ -26,16 +26,18 @@
 				<ale-icon-list [data]="socialMenu$ | async"></ale-icon-list>
 
 				<!-- Buttons -->
-				<div class="button-nav flex-center">
-
-					<a class="icon-button" (click)="toggleTheme()">
-						<fa-icon [icon]="themeMode | iconTheme"></fa-icon>
-					</a>
-
-					<a id="menuToggle" class="icon-button" (click)="openedMenu=!openedMenu">
-						<ale-menu-button [active]="openedMenu" [homeRoute]="homeRoute"></ale-menu-button>
-					</a>
-				</div>
+				<ul class="button-nav flex-center">
+					<li>
+						<a class="icon-button" role="button" (click)="toggleTheme()">
+							<fa-icon [icon]="themeMode | iconTheme"></fa-icon>
+						</a>
+					</li>
+					<li>
+						<a id="menuToggle" class="icon-button" role="button" [attr.aria-expanded]="openedMenu" (click)="openedMenu=!openedMenu">
+							<ale-menu-button [active]="openedMenu" [homeRoute]="homeRoute"></ale-menu-button>
+						</a>
+					</li>
+				</ul>
 
 			</nav>
 		</div>
