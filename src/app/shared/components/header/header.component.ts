@@ -10,109 +10,109 @@ import { DataService } from '../../services/data.service'
 import { ThemeHandlerService, ThemeMode } from '../../services/theme-handler.service'
 
 @Component({
-	selector: 'ale-header',
-	templateUrl: './header.component.html',
-	styleUrls: ['./header.component.scss']
+  selector: 'ale-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy, DoCheck {
 
-	mainMenu$: Observable<object>
-	socialMenu$: Observable<object>
+  mainMenu$: Observable<object>
+  socialMenu$: Observable<object>
 
-	themeMode: ThemeMode
-	openedMenu: boolean = false
-	desktop: boolean = false
-	breakpointSubscription: Subscription
+  themeMode: ThemeMode
+  openedMenu: boolean = false
+  desktop: boolean = false
+  breakpointSubscription: Subscription
 
-	resetScroll$: Observable<boolean>
-	routerSubscription: Subscription
-	homeRoute: boolean
-	homeRouteClass: string = 'home-route'
+  resetScroll$: Observable<boolean>
+  routerSubscription: Subscription
+  homeRoute: boolean
+  homeRouteClass: string = 'home-route'
 
-	differ: KeyValueDiffer<string, any>
+  differ: KeyValueDiffer<string, any>
 
-	constructor(
-		private data: DataService,
-		private themeService: ThemeHandlerService,
-		private router: Router,
-		private differs: KeyValueDiffers,
-		private breakpointObserver: BreakpointObserver,
-		@Inject(PLATFORM_ID) private platformId: object
-	) {
-		this.differ = this.differs.find({}).create()
-	}
+  constructor(
+    private data: DataService,
+    private themeService: ThemeHandlerService,
+    private router: Router,
+    private differs: KeyValueDiffers,
+    private breakpointObserver: BreakpointObserver,
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {
+    this.differ = this.differs.find({}).create()
+  }
 
-	ngOnInit(): void {
-		this.breakpointSubscription = this.breakpointObserver
-			.observe([AleBreakpoints.Small, AleBreakpoints.Medium])
-			.subscribe((state: BreakpointState) => this.desktop = state.matches ? false : true)
+  ngOnInit(): void {
+    this.breakpointSubscription = this.breakpointObserver
+      .observe([AleBreakpoints.Small, AleBreakpoints.Medium])
+      .subscribe((state: BreakpointState) => this.desktop = state.matches ? false : true)
 
-		this.mainMenu$ = this.data.mainMenu
-		this.socialMenu$ = this.data.socialMenu
+    this.mainMenu$ = this.data.mainMenu
+    this.socialMenu$ = this.data.socialMenu
 
-		this.setThemeMode()
-		this.setHomeRouteConfig()
-	}
+    this.setThemeMode()
+    this.setHomeRouteConfig()
+  }
 
-	ngDoCheck(): void {
-		const change = this.differ.diff(this)
-		if (change && isPlatformBrowser(this.platformId)) {
-			change.forEachChangedItem(item => {
-				if (item.key === 'openedMenu') {
-					document.body.classList.toggle('menu-opened-gap')
-					document.body.classList.toggle('menu-opened-overflow')
-					document.getElementById('main-header').classList.toggle('menu-opened-gap')
-				}
-			})
-		}
-	}
+  ngDoCheck(): void {
+    const change = this.differ.diff(this)
+    if (change && isPlatformBrowser(this.platformId)) {
+      change.forEachChangedItem(item => {
+        if (item.key === 'openedMenu') {
+          document.body.classList.toggle('menu-opened-gap')
+          document.body.classList.toggle('menu-opened-overflow')
+          document.getElementById('main-header').classList.toggle('menu-opened-gap')
+        }
+      })
+    }
+  }
 
-	setThemeMode() {
-		this.themeMode = this.themeService.getTheme()
-	}
+  setThemeMode(): void {
+    this.themeMode = this.themeService.getTheme()
+  }
 
-	toggleTheme(): void {
-		this.themeService.toggleTheme()
-		this.setThemeMode()
-	}
+  toggleTheme(): void {
+    this.themeService.toggleTheme()
+    this.setThemeMode()
+  }
 
-	setHomeRouteConfig(): void {
-		this.routerSubscription = this.router.events.subscribe((route) => {
-			if (route instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
-				this.openedMenu = false
-				this.toggleHomeRouteClass()
+  setHomeRouteConfig(): void {
+    this.routerSubscription = this.router.events.subscribe((route) => {
+      if (route instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
+        this.openedMenu = false
+        this.toggleHomeRouteClass()
 
-				// set document height
-				setDocHeight()
-				addEventListener('resize', setDocHeight)
-				addEventListener('orientationchange', setDocHeight)
-			}
-		})
-	}
+        // set document height
+        setDocHeight()
+        addEventListener('resize', setDocHeight)
+        addEventListener('orientationchange', setDocHeight)
+      }
+    })
+  }
 
-	toggleHomeRouteClass(scrolled?: boolean) {
-		if (isPlatformBrowser(this.platformId)) {
-			const classListHeader = document.getElementById('main-header').classList
-			if (window.location.pathname === '/' && !scrolled) {
-				this.homeRoute = true
-				classListHeader.add(this.homeRouteClass)
-			} else {
-				this.homeRoute = false
-				classListHeader.remove(this.homeRouteClass)
-			}
-		}
-	}
+  toggleHomeRouteClass(scrolled?: boolean): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const classListHeader = document.getElementById('main-header').classList
+      if (window.location.pathname === '/' && !scrolled) {
+        this.homeRoute = true
+        classListHeader.add(this.homeRouteClass)
+      } else {
+        this.homeRoute = false
+        classListHeader.remove(this.homeRouteClass)
+      }
+    }
+  }
 
-	ngOnDestroy(): void {
-		if (this.routerSubscription) {
-			this.routerSubscription.unsubscribe()
-		}
-		if (this.breakpointSubscription) {
-			this.breakpointSubscription.unsubscribe()
-		}
-	}
+  ngOnDestroy(): void {
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe()
+    }
+    if (this.breakpointSubscription) {
+      this.breakpointSubscription.unsubscribe()
+    }
+  }
 }
 
 const setDocHeight = () => {
-	document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`)
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`)
 }

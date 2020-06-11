@@ -2,216 +2,216 @@
 @import '../../../../scss/functions';
 
 .main-header {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	background-color: var(--header-background-color);
-	box-shadow: var(--shadow);
-	transition: background-color $time-transition;
-	z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--header-background-color);
+  box-shadow: var(--shadow);
+  transition: background-color $time-transition;
+  z-index: 1;
 
-	a {
-		color: var(--secondary-text);
-	}
+  a {
+    color: var(--secondary-text);
+  }
 }
 
 .header-container {
-	padding: 0 var(--gap-size);
-	height: var(--header-size);
+  padding: 0 var(--gap-size);
+  height: var(--header-size);
 }
 
 .header-logo {
-	.icon-logo {
-		width: var(--logo-size);
-		height: auto;
-		max-width: var(--logo-size);
-		margin-right: 1rem;
-		transition: all $time-transition;
-	}
+  .icon-logo {
+    width: var(--logo-size);
+    height: auto;
+    max-width: var(--logo-size);
+    margin-right: 1rem;
+    transition: all $time-transition;
+  }
 
-	.text-logo {
-		font-size: var(--logo-text-size);
-		color: var(--foreground-color);
+  .text-logo {
+    font-size: var(--logo-text-size);
+    color: var(--foreground-color);
 
-		.extension {
-			font-size: 1.2rem;
-			color: var(--secondary-text);
-		}
-	}
+    .extension {
+      font-size: 1.2rem;
+      color: var(--secondary-text);
+    }
+  }
 
-	&:hover {
-		.icon-logo {
-			transform: rotate(360deg);
-			transition: all $time-transition * 2 cubic-bezier(.680, -.550, .265, 1.550);
-		}
-	}
+  &:hover {
+    .icon-logo {
+      transform: rotate(360deg);
+      transition: all $time-transition * 2 cubic-bezier(.680, -.550, .265, 1.550);
+    }
+  }
 }
 
 .header-nav,
 :host .header-nav ::ng-deep.icon-list {
-	a {
-		color: var(--secondary-text);
-		cursor: pointer;
-		display: block;
+  a {
+    color: var(--secondary-text);
+    cursor: pointer;
+    display: block;
 
-		&:hover {
-			color: var(--link-color);
-		}
+    &:hover {
+      color: var(--link-color);
+    }
 
-		&.icon-button {
-			padding: var(--gap-size) 1rem;
-			font-size: 1.4rem;
-			cursor: pointer;
-		}
-	}
+    &.icon-button {
+      padding: var(--gap-size) 1rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+  }
 }
 
 .pages-nav {
-	a {
-		padding: var(--gap-size);
-		transition: border-bottom-width $time-transition;
-		position: relative;
+  a {
+    padding: var(--gap-size);
+    transition: border-bottom-width $time-transition;
+    position: relative;
 
-		&:after {
-			content: '';
-			margin: 0 auto;
-			position: absolute;
-			opacity: 0;
-			bottom: 1px;
-			left: 0;
-			right: 100%;
-			transition: all $cubic-transition;
-			border-bottom: $border-size solid var(--link-color);
-		}
+    &:after {
+      content: '';
+      margin: 0 auto;
+      position: absolute;
+      opacity: 0;
+      bottom: 1px;
+      left: 0;
+      right: 100%;
+      transition: all $cubic-transition;
+      border-bottom: $border-size solid var(--link-color);
+    }
 
-		&.router-link-active {
-			color: var(--link-color);
-		}
+    &.router-link-active {
+      color: var(--link-color);
+    }
 
-		&.router-link-active:after,
-		&:hover:after {
-			opacity: 1;
-			right: 0;
-			left: 0;
-		}
-	}
+    &.router-link-active:after,
+    &:hover:after {
+      opacity: 1;
+      right: 0;
+      left: 0;
+    }
+  }
 }
 
 :host .home-route ::ng-deep.icon-list {
-	a.icon-button {
-		color: $translucent-text;
+  a.icon-button {
+    color: $translucent-text;
 
-		&:hover {
-			color: $translucent-text-hover;
-		}
-	}
+    &:hover {
+      color: $translucent-text-hover;
+    }
+  }
 }
 
 // Home route
 .main-header.home-route {
-	background-color: transparent;
-	box-shadow: none;
+  background-color: transparent;
+  box-shadow: none;
 
-	a {
-		border-bottom-color: $white;
-		color: $translucent-text;
-	}
+  a {
+    border-bottom-color: $white;
+    color: $translucent-text;
+  }
 
-	.text-logo {
-		color: $white;
+  .text-logo {
+    color: $white;
 
-		.extension {
-			color: $translucent-text;
-		}
-	}
+    .extension {
+      color: $translucent-text;
+    }
+  }
 
-	a.router-link-active,
-	a:hover,
-	a:after {
-		border-bottom-color: $white;
-		color: $translucent-text-hover;
-	}
+  a.router-link-active,
+  a:hover,
+  a:after {
+    border-bottom-color: $white;
+    color: $translucent-text-hover;
+  }
 
-	.header-logo {
+  .header-logo {
 
-		.icon-logo {
-			opacity: .8;
-		}
+    .icon-logo {
+      opacity: .8;
+    }
 
-		&:hover {
+    &:hover {
 
-			.icon-logo {
-				opacity: 1;
-			}
+      .icon-logo {
+        opacity: 1;
+      }
 
-			.text-logo,
-			.extension {
-				color: $translucent-text-hover;
-			}
-		}
-	}
+      .text-logo,
+      .extension {
+        color: $translucent-text-hover;
+      }
+    }
+  }
 }
 
 #menuToggle {
-	display: none;
+  display: none;
 }
 
 @media only screen and (max-width: $sm-screen) {
-	#menuToggle {
-		display: block;
-	}
+  #menuToggle {
+    display: block;
+  }
 
-	.pages-nav {
-		flex-direction: column;
-		justify-content: space-around;
-		position: absolute;
-		top: var(--header-size);
-		left: 0;
-		width: 100%;
-		height: 0;
-		background-color: var(--background-color);
-		transition: height $cubic-transition;
-		overflow: hidden;
+  .pages-nav {
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    top: var(--header-size);
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--background-color);
+    transition: height $cubic-transition;
+    overflow: hidden;
 
-		&.opened-menu {
-			height: calc(#{vh(100)} - var(--header-size));
-		}
+    &.opened-menu {
+      height: calc(#{vh(100)} - var(--header-size));
+    }
 
-		li {
-			width: 100%;
-			height: 100%;
-			border-top-width: 1px;
-			border-top-style: solid;
-			border-top-color: #{$grey} + 20;
-			text-align: center;
+    li {
+      width: 100%;
+      height: 100%;
+      border-top-width: 1px;
+      border-top-style: solid;
+      border-top-color: #{$grey} + 20;
+      text-align: center;
 
-			a {
-				display: table;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				font-size: 1.6rem;
-				color: var(--secondary-text);
+      a {
+        display: table;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 1.6rem;
+        color: var(--secondary-text);
 
-				&:after {
-					bottom: -1px;
-					border-bottom-color: var(--link-color);
-				}
+        &:after {
+          bottom: -1px;
+          border-bottom-color: var(--link-color);
+        }
 
-				&:hover {
-					color: var(--link-color);
-				}
+        &:hover {
+          color: var(--link-color);
+        }
 
-				&.router-link-active {
-					color: var(--link-color);
-					background-color: #{$grey} + 20;
-				}
+        &.router-link-active {
+          color: var(--link-color);
+          background-color: #{$grey} + 20;
+        }
 
-				span {
-					display: table-cell;
-					vertical-align: middle;
-				}
-			}
-		}
-	}
+        span {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
 }

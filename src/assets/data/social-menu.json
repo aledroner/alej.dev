@@ -1,11 +1,11 @@
 [{
-	"name": "social.github",
-	"url": "https://github.com/aledroner",
-	"target": "_blank",
-	"icon": "github"
+  "name": "social.github",
+  "url": "https://github.com/aledroner",
+  "target": "_blank",
+  "icon": "github"
 }, {
-	"name": "social.twitter",
-	"url": "https://twitter.com/alej_dev",
-	"target": "_blank",
-	"icon": "twitter"
+  "name": "social.twitter",
+  "url": "https://twitter.com/alej_dev",
+  "target": "_blank",
+  "icon": "twitter"
 }]

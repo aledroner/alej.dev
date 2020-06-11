@@ -1,23 +1,23 @@
 @import '../../../../scss/variables.scss';
 
 .icon-list {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	a {
-		display: block;
-		cursor: pointer;
-		color: $translucent-text;
+  a {
+    display: block;
+    cursor: pointer;
+    color: $translucent-text;
 
-		&:hover {
-			color: $translucent-text-hover;
-		}
+    &:hover {
+      color: $translucent-text-hover;
+    }
 
-		&.icon-button {
-			padding: var(--gap-size) 1rem;
-			font-size: 1.4rem;
-			cursor: pointer;
-		}
-	}
+    &.icon-button {
+      padding: var(--gap-size) 1rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+  }
 }

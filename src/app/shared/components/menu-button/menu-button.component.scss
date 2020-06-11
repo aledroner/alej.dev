@@ -3,79 +3,79 @@
 $iconSize: 22.4px;
 
 .menu-button-container {
-	width: $iconSize;
-	height: $iconSize;
+  width: $iconSize;
+  height: $iconSize;
 
-	&:hover .bar,
-	&:hover .bar:before,
-	&:hover .bar:after,
-	.active .bar:before,
-	.active .bar:after {
-		background-color: var(--link-color);
-	}
+  &:hover .bar,
+  &:hover .bar:before,
+  &:hover .bar:after,
+  .active .bar:before,
+  .active .bar:after {
+    background-color: var(--link-color);
+  }
 }
 
 .bars-container {
-	width: $iconSize;
-	height: 100%;
+  width: $iconSize;
+  height: 100%;
 
-	&.active .bar {
-		background-color: transparent;
+  &.active .bar {
+    background-color: transparent;
 
-		&:before {
-			margin-top: 0px;
-			transform: rotate(405deg);
-		}
+    &:before {
+      margin-top: 0px;
+      transform: rotate(405deg);
+    }
 
-		&:after {
-			margin-top: 0px;
-			transform: rotate(-405deg);
-		}
-	}
+    &:after {
+      margin-top: 0px;
+      transform: rotate(-405deg);
+    }
+  }
 }
 
 .bar,
 .bar:before,
 .bar:after {
-	display: block;
-	position: absolute;
-	width: $iconSize;
-	height: $border-size;
-	border-radius: 2px;
-	background-color: var(--secondary-text);
-	transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: block;
+  position: absolute;
+  width: $iconSize;
+  height: $border-size;
+  border-radius: 2px;
+  background-color: var(--secondary-text);
+  transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .bar {
-	&:before {
-		content: '';
-		margin-top: -8px;
-	}
+  &:before {
+    content: '';
+    margin-top: -8px;
+  }
 
-	&:after {
-		content: '';
-		margin-top: 8px;
-	}
+  &:after {
+    content: '';
+    margin-top: 8px;
+  }
 }
 
 // Home route
 .menu-button-container.home-route {
 
-	.bar,
-	.bar:before,
-	.bar:after {
-		background-color: $translucent-text;
-	}
+  .bar,
+  .bar:before,
+  .bar:after {
+    background-color: $translucent-text;
+  }
 
-	&:hover .bar,
-	&:hover .bar:before,
-	&:hover .bar:after,
-	.active .bar:before,
-	.active .bar:after {
-		background-color: $translucent-text-hover
-	}
+  &:hover .bar,
+  &:hover .bar:before,
+  &:hover .bar:after,
+  .active .bar:before,
+  .active .bar:after {
+    background-color: $translucent-text-hover
+  }
 
-	.active .bar {
-		background-color: transparent;
-	}
+  .active .bar {
+    background-color: transparent;
+  }
 }

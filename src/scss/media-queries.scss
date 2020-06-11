@@ -2,16 +2,16 @@
 @import 'variables';
 
 @media only screen and (max-width: $sm-screen) {
-	:root {
-		--gap-size: #{$gap-size * .6};
-		--logo-size: #{$logo-size * .75};
-		--logo-text-size: 1.6rem;
-		--header-size: 68px;
-	}	
+  :root {
+    --gap-size: #{$gap-size * .6};
+    --logo-size: #{$logo-size * .75};
+    --logo-text-size: 1.6rem;
+    --header-size: 68px;
+  }
 }
 
 @media only screen and (max-width: $xs-screen) {
-	:root {
-		--gap-size: #{$gap-size * .4};
-	}
+  :root {
+    --gap-size: #{$gap-size * .4};
+  }
 }

@@ -1,13 +1,13 @@
 {
-	"app-title": "alej.dev",
-	"header-nav.about": "Sobre mí",
-	"header-nav.blog": "Blog",
-	"header-nav.contact": "Contacto",
-	"header-nav.home": "Inicio",
-	"hint.menu": "Menú",
-	"hint.switch-theme": "Cambiar tema",
-	"social.github": "Github",
-	"social.twitter": "Twitter",
-	"text.hello": "Hola! Soy Alejandro",
-	"text.frontend": "Desarrollador frontend"
+  "app-title": "alej.dev",
+  "header-nav.about": "Sobre mí",
+  "header-nav.blog": "Blog",
+  "header-nav.contact": "Contacto",
+  "header-nav.home": "Inicio",
+  "hint.menu": "Menú",
+  "hint.switch-theme": "Cambiar tema",
+  "social.github": "Github",
+  "social.twitter": "Twitter",
+  "text.hello": "Hola! Soy Alejandro",
+  "text.frontend": "Desarrollador frontend"
 }

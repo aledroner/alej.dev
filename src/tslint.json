@@ -1,33 +1,33 @@
 {
-	"extends": "../tslint.json",
-	"rules": {
-		"directive-selector": [
-			true,
-			"attribute",
-			"ale",
-			"camelCase"
-		],
-		"component-selector": [
-			true,
-			"element",
-			"ale",
-			"kebab-case"
-		],
-		"semicolon": [
-			true,
-			"never"
-		],
-		"eofline": true,
-		"max-line-length": [
-			false
-		],
-		"no-switch-case-fall-through": false,
-		"variable-name": false,
-		"indent": {
-			"options": [
-				"tabs"
-			]
-		},
-		"no-inferrable-types": false
-	}
+  "extends": "../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "ale",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "ale",
+      "kebab-case"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "eofline": true,
+    "max-line-length": [
+      false
+    ],
+    "no-switch-case-fall-through": false,
+    "variable-name": false,
+    "indent": {
+      "options": [
+        "spaces"
+      ]
+    },
+    "no-inferrable-types": false
+  }
 }

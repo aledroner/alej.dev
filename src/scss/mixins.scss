@@ -2,24 +2,23 @@
 
 // Set map
 @mixin set-map($map) {
-	@each $key,	$value in $map {
-		--#{$key}: #{$value};
-	}
+  @each $key, $value in $map {
+    --#{$key}: #{$value};
+  }
 }
 
 // Set map of maps
 @mixin set-maps($map) {
-	@each $nameSchema, $schema in $map {
-		@each $key,	$value in $schema {
-			--#{$nameSchema}-#{$key}: #{$value};
-		}
-	}
+  @each $nameSchema, $schema in $map {
+    @each $key, $value in $schema {
+      --#{$nameSchema}-#{$key}: #{$value};
+    }
+  }
 }
 
 // Generate theme properties
 @mixin set-theme($themes, $mode) {
-	@each $name,
-	$property in $themes {
-		--#{$name}: #{nth($property, $mode)};
-	}
+  @each $name, $property in $themes {
+    --#{$name}: #{nth($property, $mode)};
+  }
 }

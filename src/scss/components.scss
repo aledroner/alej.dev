@@ -2,28 +2,28 @@
 @import 'variables';
 
 .menu-opened-overflow {
-	overflow-y: hidden;
+  overflow-y: hidden;
 }
 
 .menu-opened-gap {
-	padding-right: $scroll-size;
+  padding-right: $scroll-size;
 }
 
 .page-wrapper {
-	padding: calc(var(--header-size) + var(--gap-size)) var(--gap-size) var(--gap-size);
+  padding: calc(var(--header-size) + var(--gap-size)) var(--gap-size) var(--gap-size);
 }
 
 .container {
-	padding: var(--gap-size);
+  padding: var(--gap-size);
 }
 
 .screen-container {
-	max-width: $lg-screen;
-	margin: auto;
+  max-width: $lg-screen;
+  margin: auto;
 }
 
 .flex-center {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

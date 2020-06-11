@@ -14,40 +14,40 @@ import { LogoPathPipe } from './pipes/logo-path.pipe'
 import { ThemeHandlerService } from './services/theme-handler.service'
 
 const components = [
-	HeaderComponent,
-	MenuButtonComponent,
-	ProgressBarComponent,
-	IconListComponent,
-	IconThemePipe,
-	LogoPathPipe
+  HeaderComponent,
+  MenuButtonComponent,
+  ProgressBarComponent,
+  IconListComponent,
+  IconThemePipe,
+  LogoPathPipe
 ]
 
 const modules = [
-	CommonModule,
-	RouterModule,
-	HttpClientModule,
-	I18nModule,
-	IconsModule,
+  CommonModule,
+  RouterModule,
+  HttpClientModule,
+  I18nModule,
+  IconsModule,
 ]
 
 export function themeFactory(themeService: ThemeHandlerService) {
-	return () => themeService.setThemeOnStart()
+  return () => themeService.setThemeOnStart()
 }
 
 @NgModule({
-	declarations: [
-		...components,
-	],
-	imports: [
-		...modules,
-	],
-	exports: [
-		...components,
-		...modules,
-		IconListComponent
-	],
-	providers: [
-		{ provide: APP_INITIALIZER, useFactory: themeFactory, deps: [ThemeHandlerService], multi: true }
-	]
+  declarations: [
+    ...components,
+  ],
+  imports: [
+    ...modules,
+  ],
+  exports: [
+    ...components,
+    ...modules,
+    IconListComponent
+  ],
+  providers: [
+    { provide: APP_INITIALIZER, useFactory: themeFactory, deps: [ThemeHandlerService], multi: true }
+  ]
 })
 export class SharedModule { }

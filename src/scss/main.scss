@@ -3,47 +3,47 @@
 @import 'variables';
 
 :root {
-	@include set-map($root-config);
-	scrollbar-color: var(--scrollbar-color) #{$white};
+  @include set-map($root-config);
+  scrollbar-color: var(--scrollbar-color) #{$white};
   scrollbar-width: thin;
 }
 
 html,
 body {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	margin: 0;
-	font-size: $main-font-size;
-	font-family: $primary-font;
-	background-color: var(--background-color);
-	color: var(--foreground-color);
-	transition: background-color $time-transition;
+  margin: 0;
+  font-size: $main-font-size;
+  font-family: $primary-font;
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  transition: background-color $time-transition;
 
-	&::-webkit-scrollbar {
-		width: $scroll-size;
-	}
+  &::-webkit-scrollbar {
+    width: $scroll-size;
+  }
 
-	&::-webkit-scrollbar-thumb {
-		background-color: var(--scrollbar-color);
-		border-radius: 1rem;
-	}
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+    border-radius: 1rem;
+  }
 
-	&::-webkit-scrollbar-track {
-		background-color: rgba($color: $grey, $alpha: .5);
-	}
+  &::-webkit-scrollbar-track {
+    background-color: rgba($color: $grey, $alpha: .5);
+  }
 }
 
 * {
-	-webkit-font-smoothing: antialased;
-	-moz-osx-font-smoothing: antialased;
-	box-sizing: border-box;
+  -webkit-font-smoothing: antialased;
+  -moz-osx-font-smoothing: antialased;
+  box-sizing: border-box;
 }
 
 code {
-	font-family: $tertiary-font;
-	font-size: $code-font-size;
+  font-family: $tertiary-font;
+  font-size: $code-font-size;
 }
 
 h1,
@@ -52,45 +52,45 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 1.2em 0 1em;
-	font-family: $secondary-font;
-	font-weight: 800;
+  margin: 1.2em 0 1em;
+  font-family: $secondary-font;
+  font-weight: 800;
 }
 
 h1 {
-	font-size: $h1-font-size;
+  font-size: $h1-font-size;
 }
 
 h2 {
-	font-size: $h2-font-size;
+  font-size: $h2-font-size;
 }
 
 h3 {
-	font-size: $h3-font-size;
+  font-size: $h3-font-size;
 }
 
 h4 {
-	font-size: $h4-font-size;
+  font-size: $h4-font-size;
 }
 
 h5 {
-	font-size: $h5-font-size;
+  font-size: $h5-font-size;
 }
 
 h6 {
-	font-size: $h6-font-size;
+  font-size: $h6-font-size;
 }
 
 p {
-	line-height: $line-height-size;
+  line-height: $line-height-size;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 ul {
-	padding: 0;
-	margin: 0;
-	list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
