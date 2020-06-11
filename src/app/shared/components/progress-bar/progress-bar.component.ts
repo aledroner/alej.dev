@@ -2,14 +2,13 @@ import { fromEvent, Observable, Subscription } from 'rxjs'
 import { auditTime, map, tap } from 'rxjs/operators'
 
 import { isPlatformBrowser } from '@angular/common'
-import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnDestroy, OnInit, Output, PLATFORM_ID } from '@angular/core'
+import { Component, EventEmitter, Inject, OnDestroy, OnInit, Output, PLATFORM_ID } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
 
 @Component({
   selector: 'ale-progress-bar',
   template: `<div id="progress-bar"></div>`,
-  styleUrls: ['./progress-bar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./progress-bar.component.scss']
 })
 export class ProgressBarComponent implements OnInit, OnDestroy {
 

@@ -1,25 +1,24 @@
 import { Observable } from 'rxjs'
 import { DataService } from 'src/app/shared/services/data.service'
 
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 
 @Component({
-	selector: 'ale-presentation',
-	templateUrl: './presentation.component.html',
-	styleUrls: ['./presentation.component.scss'],
-	changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'ale-presentation',
+  templateUrl: './presentation.component.html',
+  styleUrls: ['./presentation.component.scss']
 })
 export class PresentationComponent implements OnInit {
 
-	socialMenu$: Observable<object>
+  socialMenu$: Observable<object>
 
-	@Output() clickScrollButton: EventEmitter<object> = new EventEmitter<object>()
+  @Output() clickScrollButton: EventEmitter<object> = new EventEmitter<object>()
 
-	constructor(
-		public data: DataService
-	) { }
+  constructor(
+    public data: DataService
+  ) { }
 
-	ngOnInit(): void {
-		this.socialMenu$ = this.data.socialMenu
-	}
+  ngOnInit(): void {
+    this.socialMenu$ = this.data.socialMenu
+  }
 }
