@@ -11,23 +11,22 @@ import { SwUpdate } from '@angular/service-worker'
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  private SwUpdateSubscription: Subscription
+  private swUpdateSubscription: Subscription
 
   constructor(
     private swUpdate: SwUpdate
   ) { }
 
   ngOnInit(): void {
-    // Service Worker
-    if (this.swUpdate.isEnabled) {
-      this.SwUpdateSubscription = this.swUpdate.available
-        .subscribe(() => window.location.reload())
-    }
+    // Service Worker update
+    this.swUpdateSubscription = this.swUpdate.available.subscribe(() => {
+      this.swUpdate.activateUpdate().then(() => document.location.reload())
+    })
   }
 
   ngOnDestroy(): void {
-    if (this.SwUpdateSubscription) {
-      this.SwUpdateSubscription.unsubscribe()
+    if (this.swUpdateSubscription) {
+      this.swUpdateSubscription.unsubscribe()
     }
   }
 }
